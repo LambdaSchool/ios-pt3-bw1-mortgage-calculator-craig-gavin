@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4428528023581A3C002CD224 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4428527F23581A3C002CD224 /* Loan.swift */; };
+		442852822358F967002CD224 /* LoanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442852812358F967002CD224 /* LoanController.swift */; };
 		523515FC235808D8000C90B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523515FB235808D8000C90B0 /* AppDelegate.swift */; };
 		523515FE235808D8000C90B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523515FD235808D8000C90B0 /* SceneDelegate.swift */; };
 		52351600235808D8000C90B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523515FF235808D8000C90B0 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		4428527F23581A3C002CD224 /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
+		442852812358F967002CD224 /* LoanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanController.swift; sourceTree = "<group>"; };
 		523515F8235808D8000C90B0 /* PalmMortgageCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalmMortgageCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523515FB235808D8000C90B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		523515FD235808D8000C90B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				523515FD235808D8000C90B0 /* SceneDelegate.swift */,
 				523515FF235808D8000C90B0 /* ViewController.swift */,
 				4428527F23581A3C002CD224 /* Loan.swift */,
+				442852812358F967002CD224 /* LoanController.swift */,
 				52351601235808D8000C90B0 /* Main.storyboard */,
 				52351604235808DA000C90B0 /* Assets.xcassets */,
 				52351606235808DA000C90B0 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52351600235808D8000C90B0 /* ViewController.swift in Sources */,
+				442852822358F967002CD224 /* LoanController.swift in Sources */,
 				523515FC235808D8000C90B0 /* AppDelegate.swift in Sources */,
 				523515FE235808D8000C90B0 /* SceneDelegate.swift in Sources */,
 				4428528023581A3C002CD224 /* Loan.swift in Sources */,
