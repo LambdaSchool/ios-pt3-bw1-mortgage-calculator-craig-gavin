@@ -50,13 +50,32 @@ class LoanController {
         let totalPayment = paymentAmount(loan)
         let interestAmount = interestAmountPaid(loan)
         
-        if let additionalPrincipal = loan.additionalPrincipal {
-        return totalPayment - interestAmount + additionalPrincipal
-        } else {
-            return totalPayment - interestAmount
-        }
+        return totalPayment - interestAmount + loan.additionalPrincipal
     }
     
-    // I think the next step will be to have a function that chains all of these together, going from one month to the next (using a for-in loop?) over the life of the loan and returning the sum total for the interest paid (and probably the total number of months, which would be shortened is there is a value for additionalPrincipal)
+    // I think the next step will be to have a function that chains all of these together, going from one month to the next (using a for-in loop or a while loop?) over the life of the loan and returning the sum total for the interest paid (and probably the total number of months, which would be shortened is there is a value for additionalPrincipal)
+    func lifeOfLoanAmounts(_ loan: Loan?) -> Double {
+        guard let loan = loan else { fatalError("lifeOfLoan called without a loan value") }
+        
+        var cumulativeInterestPaid: Double = 0
+        var newLoanValues: Loan = loan
+        
+        var currentPrincipal = loan.principal
+        let years = loan.years
+        let rate = loan.rate
+        let downPayment = loan.downPayment
+        let paymentsPerPeriod = loan.paymentsPerPeriod
+        let additionalPrincipal = loan.additionalPrincipal
+
+        while currentPrincipal >= 0 {
+            let currentInterestPaid = interestAmountPaid(newLoanValues)
+            cumulativeInterestPaid = cumulativeInterestPaid + currentInterestPaid
+            currentPrincipal = currentPrincipal - principalAmountPaid(newLoanValues)
+            
+            newLoanValues = Loan(principal: currentPrincipal, years: years, rate: rate, downPayment: downPayment, paymentsPerPeriod: paymentsPerPeriod, additionalPrincipal: additionalPrincipal)
+        }
+        
+        return cumulativeInterestPaid
+    }
     
 }
