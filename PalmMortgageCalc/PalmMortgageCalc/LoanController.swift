@@ -22,7 +22,9 @@ class LoanController {
     
     
     // MARK: Methods
-    // This function calculates the monthly payment amount for a loan
+    // This function takes in a Loan and calculates the monthly payment amount for a loan, returning a Double
+    // The equation is: Payment = Principal / DiscountFactor
+    // DiscountFactor is ((1 + i)^n - 1) / (i * (1 + i)^n)  where i = interest rate / 12, n = years * paymentsPerYear
     func paymentAmount(_ loan: Loan?) -> Double {
         guard let loan = loan else { fatalError("paymentAmount called without a loan value") }
         let principal = loan.principal
@@ -32,7 +34,8 @@ class LoanController {
         return principal / discountFactor
     }
     
-    // This function calculates the monthly interest payment included in the loan payment
+    // This function takes in a Loan and calculates the monthly interest payment included in the loan payment
+    // The equation is:  Interest = Principal * (interestRate / paymentsPerYear)
     func interestAmountPaid(_ loan: Loan?) -> Double {
         guard let loan = loan else { fatalError("interestAmount called without a loan value") }
         let principal = loan.principal
@@ -40,8 +43,8 @@ class LoanController {
         return principal * (loan.rate / (loan.paymentsPerPeriod))
     }
     
-    // This function calculates the monthly principal payment included in the loan payment
-    // If the user selects a value for additionalPrincipal, the function adds that as well
+    // This function takes in a Loan and calculates the monthly principal payment included in the loan payment
+    // If the user selects a value for additionalPrincipal, the function adds that as well to get the total principal paid for that payment
     func principalAmountPaid(_ loan: Loan?) -> Double {
         guard let loan = loan else { fatalError("principalAmountPaid called without a loan value") }
         let totalPayment = paymentAmount(loan)
@@ -53,5 +56,7 @@ class LoanController {
             return totalPayment - interestAmount
         }
     }
+    
+    // I think the next step will be to have a function that chains all of these together, going from one month to the next (using a for-in loop?) over the life of the loan and returning the sum total for the interest paid (and probably the total number of months, which would be shortened is there is a value for additionalPrincipal)
     
 }
