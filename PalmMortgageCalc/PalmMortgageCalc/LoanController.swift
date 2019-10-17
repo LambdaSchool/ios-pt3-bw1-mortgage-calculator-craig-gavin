@@ -53,13 +53,15 @@ class LoanController {
         return totalPayment - interestAmount + loan.additionalPrincipal
     }
     
-    // I think the next step will be to have a function that chains all of these together, going from one month to the next (using a for-in loop or a while loop?) over the life of the loan and returning the sum total for the interest paid (and probably the total number of months, which would be shortened is there is a value for additionalPrincipal)
+    // This function takes in a Loan and returns the cumulative interest paid over the life of the loan.  It was a little tricky for me and I'm not sure it's optimally efficient but it seems to work.  It might also be interesting to add the total number of months, which would be shortened is there is a value for additionalPrincipal
     func lifeOfLoanAmounts(_ loan: Loan?) -> Double {
         guard let loan = loan else { fatalError("lifeOfLoan called without a loan value") }
         
-        var cumulativeInterestPaid: Double = 0
-        var newLoanValues: Loan = loan
+        var cumulativeInterestPaid: Double = 0   // start the cumulative counter at 0
+        var newLoanValues: Loan = loan   // the while loop will need to recalculate the values for each loop
+        let monthlyPayment = paymentAmount(loan)  // the monthly payment will not change, so it is set outside the loop
         
+        //  I set variables/constants for these just to make it easier to call them in the while loop
         var currentPrincipal = loan.principal
         let years = loan.years
         let rate = loan.rate
@@ -70,9 +72,11 @@ class LoanController {
         while currentPrincipal >= 0 {
             let currentInterestPaid = interestAmountPaid(newLoanValues)
             cumulativeInterestPaid = cumulativeInterestPaid + currentInterestPaid
-            currentPrincipal = currentPrincipal - principalAmountPaid(newLoanValues)
+            currentPrincipal = currentPrincipal - (monthlyPayment - currentInterestPaid + additionalPrincipal)
             
             newLoanValues = Loan(principal: currentPrincipal, years: years, rate: rate, downPayment: downPayment, paymentsPerPeriod: paymentsPerPeriod, additionalPrincipal: additionalPrincipal)
+            
+            // TODO:  need to add 'final payment' data, which will be different than all the rest.
         }
         
         return cumulativeInterestPaid
