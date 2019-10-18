@@ -75,9 +75,9 @@ class LoanController {
             currentPrincipal = ((currentPrincipal - (monthlyPayment - currentInterestPaid + additionalPrincipal)) * 100).rounded() / 100
             
             newLoanValues = Loan(principal: currentPrincipal, years: years, rate: rate, downPayment: downPayment, paymentsPerPeriod: paymentsPerPeriod, additionalPrincipal: additionalPrincipal)
-            
-            
         }
+        
+        cumulativeInterestPaid = monthlyPayment - currentPrincipal
         
         return (cumulativeInterestPaid * 100).rounded() / 100
     }
