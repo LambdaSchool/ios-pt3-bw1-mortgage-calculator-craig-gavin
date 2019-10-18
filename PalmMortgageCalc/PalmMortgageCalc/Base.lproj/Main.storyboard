@@ -59,7 +59,6 @@
             <point key="canvasLocation" x="-371" y="120"/>
         </scene>
         <!--Loan Library-->
-        <!--Loan Tracker-->
         <scene sceneID="QN0-Km-N3C">
             <objects>
                 <tableViewController id="p51-JM-lXB" sceneMemberID="viewController">
@@ -97,17 +96,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rwp-AZ-PbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="497" y="455"/>
-                    <navigationItem key="navigationItem" title="Loan Tracker" id="WpN-2l-kiA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0xo-R3-Vhq">
-                            <connections>
-                                <segue destination="fdc-yG-qfW" kind="presentation" id="tPr-4P-Mda"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rwp-AZ-PbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-255" y="118"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4MN-Po-sMg">
@@ -183,7 +171,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yy2-LW-L6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="496" y="-256"/>
-            <point key="canvasLocation" x="557" y="-299"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KtK-k2-Is0">
@@ -195,7 +182,6 @@
                     </navigationBar>
                     <connections>
                         <segue destination="pyS-5m-SXX" kind="relationship" relationship="rootViewController" id="JeB-rL-VRD"/>
-                        <segue destination="p51-JM-lXB" kind="relationship" relationship="rootViewController" id="8aI-s2-w17"/> 
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hC9-cJ-yd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -206,7 +192,4 @@
     <inferredMetricsTieBreakers>
         <segue reference="gsC-e2-AWA"/>
     </inferredMetricsTieBreakers>
-            <point key="canvasLocation" x="-1043" y="118"/>
-        </scene>
-    </scenes>
 </document>
