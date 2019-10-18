@@ -7,7 +7,58 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Loan Tracker-->
+        <!--View Controller-->
+        <scene sceneID="2ih-6U-r1C">
+            <objects>
+                <viewController id="pyS-5m-SXX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cOz-gy-imN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="eDt-N2-H9V">
+                                <rect key="frame" x="60" y="381" width="294" height="134"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIJ-Gy-96h">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="42"/>
+                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                        <state key="normal" title="Loan Calculator">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="fdc-yG-qfW" kind="showDetail" id="gsC-e2-AWA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brF-ZT-MN9">
+                                        <rect key="frame" x="0.0" y="92" width="294" height="42"/>
+                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                        <state key="normal" title="Loan Library">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="p51-JM-lXB" kind="showDetail" id="TWv-JC-LJS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="eDt-N2-H9V" firstAttribute="centerY" secondItem="cOz-gy-imN" secondAttribute="centerY" id="bBA-iQ-67Y"/>
+                            <constraint firstItem="eDt-N2-H9V" firstAttribute="leading" secondItem="zhg-MI-okR" secondAttribute="leading" constant="60" id="fc2-V6-csV"/>
+                            <constraint firstItem="eDt-N2-H9V" firstAttribute="centerX" secondItem="cOz-gy-imN" secondAttribute="centerX" id="jjm-SA-HL2"/>
+                            <constraint firstItem="zhg-MI-okR" firstAttribute="trailing" secondItem="eDt-N2-H9V" secondAttribute="trailing" constant="60" id="pan-w6-ER4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zhg-MI-okR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ciz-IL-ljq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ou-1y-iVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-371" y="120"/>
+        </scene>
+        <!--Loan Library-->
         <scene sceneID="QN0-Km-N3C">
             <objects>
                 <tableViewController id="p51-JM-lXB" sceneMemberID="viewController">
@@ -30,17 +81,21 @@
                             <outlet property="delegate" destination="p51-JM-lXB" id="uYH-gy-RqD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Loan Tracker" id="WpN-2l-kiA">
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="hP0-NI-os5"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Loan Library" id="WpN-2l-kiA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0xo-R3-Vhq">
                             <connections>
-                                <segue destination="fdc-yG-qfW" kind="presentation" id="tPr-4P-Mda"/>
+                                <segue destination="fdc-yG-qfW" kind="presentation" id="Ebs-Ws-OdA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rwp-AZ-PbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-255" y="118"/>
+            <point key="canvasLocation" x="497" y="455"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4MN-Po-sMg">
@@ -115,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yy2-LW-L6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="557" y="-299"/>
+            <point key="canvasLocation" x="496" y="-256"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KtK-k2-Is0">
@@ -126,12 +181,15 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="p51-JM-lXB" kind="relationship" relationship="rootViewController" id="8aI-s2-w17"/>
+                        <segue destination="pyS-5m-SXX" kind="relationship" relationship="rootViewController" id="JeB-rL-VRD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hC9-cJ-yd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1043" y="118"/>
+            <point key="canvasLocation" x="-1114" y="120"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="gsC-e2-AWA"/>
+    </inferredMetricsTieBreakers>
 </document>
