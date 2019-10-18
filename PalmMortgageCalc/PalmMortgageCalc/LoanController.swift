@@ -53,11 +53,12 @@ class LoanController {
         return totalPayment - interestAmount + loan.additionalPrincipal
     }
     
-    // This function takes in a Loan and returns the cumulative interest paid over the life of the loan.  It was a little tricky for me and I'm not sure it's optimally efficient but it seems to work.  It might also be interesting to add the total number of months, which would be shortened is there is a value for additionalPrincipal
-    func lifeOfLoanAmounts(_ loan: Loan?) -> Double {
+    // This function takes in a Loan and returns the cumulative interest paid over the life of the loan as well as the total number of payments.  Note: to call the result, we need to use the notation as follows:  If we declare a variable of loan1 = lifeOfLoanAmounts(xxxxxxx), we would need to use loan1.totalInterest or loan1.numberPayments
+    func lifeOfLoanAmounts(_ loan: Loan?) -> (totalInterest: Double, numberPayments: Int) {
         guard let loan = loan else { fatalError("lifeOfLoan called without a loan value") }
         
         var cumulativeInterestPaid: Double = 0   // start the cumulative counter at 0
+        var totalNumberOfPayments: Int = 0   // start the # of payments counter at 0
         var newLoanValues: Loan = loan   // the while loop will need to recalculate the values for each loop
         let monthlyPayment = paymentAmount(loan)  // the monthly payment will not change, so it is set outside the loop
         
@@ -70,6 +71,7 @@ class LoanController {
         let additionalPrincipal = loan.additionalPrincipal
 
         while currentPrincipal > monthlyPayment {
+            totalNumberOfPayments += 1
             let currentInterestPaid = interestAmountPaid(newLoanValues)
             cumulativeInterestPaid = cumulativeInterestPaid + currentInterestPaid
             currentPrincipal = ((currentPrincipal - (monthlyPayment - currentInterestPaid + additionalPrincipal)) * 100).rounded() / 100
@@ -77,9 +79,10 @@ class LoanController {
             newLoanValues = Loan(principal: currentPrincipal, years: years, rate: rate, downPayment: downPayment, paymentsPerPeriod: paymentsPerPeriod, additionalPrincipal: additionalPrincipal)
         }
         
+        totalNumberOfPayments += 1
         cumulativeInterestPaid = monthlyPayment - currentPrincipal
         
-        return (cumulativeInterestPaid * 100).rounded() / 100
+        return ((cumulativeInterestPaid * 100).rounded() / 100, totalNumberOfPayments)
     }
     
 }
