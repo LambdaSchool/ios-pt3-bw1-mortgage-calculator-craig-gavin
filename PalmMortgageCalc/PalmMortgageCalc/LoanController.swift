@@ -80,7 +80,7 @@ class LoanController {
         }
         
         totalNumberOfPayments += 1
-        cumulativeInterestPaid = monthlyPayment - currentPrincipal
+        cumulativeInterestPaid = cumulativeInterestPaid + monthlyPayment - currentPrincipal
         
         return ((cumulativeInterestPaid * 100).rounded() / 100, totalNumberOfPayments)
     }

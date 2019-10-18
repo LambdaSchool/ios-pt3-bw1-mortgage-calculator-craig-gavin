@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441318BD235A53FA00D9017D /* LoanCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441318BC235A53FA00D9017D /* LoanCalculatorViewController.swift */; };
+		441318BF235A542A00D9017D /* LoanLibraryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441318BE235A542A00D9017D /* LoanLibraryTableViewController.swift */; };
+		441318C1235A54A100D9017D /* LoanResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441318C0235A54A100D9017D /* LoanResultTableViewCell.swift */; };
 		4428528023581A3C002CD224 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4428527F23581A3C002CD224 /* Loan.swift */; };
 		442852822358F967002CD224 /* LoanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442852812358F967002CD224 /* LoanController.swift */; };
 		523515FC235808D8000C90B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523515FB235808D8000C90B0 /* AppDelegate.swift */; };
 		523515FE235808D8000C90B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523515FD235808D8000C90B0 /* SceneDelegate.swift */; };
-		52351600235808D8000C90B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523515FF235808D8000C90B0 /* ViewController.swift */; };
+		52351600235808D8000C90B0 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523515FF235808D8000C90B0 /* SelectionViewController.swift */; };
 		52351603235808D8000C90B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52351601235808D8000C90B0 /* Main.storyboard */; };
 		52351605235808DA000C90B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52351604235808DA000C90B0 /* Assets.xcassets */; };
 		52351608235808DA000C90B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52351606235808DA000C90B0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		441318BC235A53FA00D9017D /* LoanCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalculatorViewController.swift; sourceTree = "<group>"; };
+		441318BE235A542A00D9017D /* LoanLibraryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanLibraryTableViewController.swift; sourceTree = "<group>"; };
+		441318C0235A54A100D9017D /* LoanResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanResultTableViewCell.swift; sourceTree = "<group>"; };
 		4428527F23581A3C002CD224 /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		442852812358F967002CD224 /* LoanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanController.swift; sourceTree = "<group>"; };
 		523515F8235808D8000C90B0 /* PalmMortgageCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalmMortgageCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523515FB235808D8000C90B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		523515FD235808D8000C90B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		523515FF235808D8000C90B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		523515FF235808D8000C90B0 /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		52351602235808D8000C90B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52351604235808DA000C90B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52351607235808DA000C90B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +47,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		441318BA235A51FE00D9017D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				523515FF235808D8000C90B0 /* SelectionViewController.swift */,
+				441318BC235A53FA00D9017D /* LoanCalculatorViewController.swift */,
+				441318BE235A542A00D9017D /* LoanLibraryTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		441318BB235A52B600D9017D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4428527F23581A3C002CD224 /* Loan.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		523515EF235808D8000C90B0 = {
 			isa = PBXGroup;
 			children = (
@@ -60,13 +84,14 @@
 		523515FA235808D8000C90B0 /* PalmMortgageCalc */ = {
 			isa = PBXGroup;
 			children = (
-				523515FB235808D8000C90B0 /* AppDelegate.swift */,
-				523515FD235808D8000C90B0 /* SceneDelegate.swift */,
-				523515FF235808D8000C90B0 /* ViewController.swift */,
-				4428527F23581A3C002CD224 /* Loan.swift */,
+				441318BB235A52B600D9017D /* Model */,
+				441318BA235A51FE00D9017D /* View Controllers */,
 				442852812358F967002CD224 /* LoanController.swift */,
+				441318C0235A54A100D9017D /* LoanResultTableViewCell.swift */,
 				52351601235808D8000C90B0 /* Main.storyboard */,
 				52351604235808DA000C90B0 /* Assets.xcassets */,
+				523515FB235808D8000C90B0 /* AppDelegate.swift */,
+				523515FD235808D8000C90B0 /* SceneDelegate.swift */,
 				52351606235808DA000C90B0 /* LaunchScreen.storyboard */,
 				52351609235808DA000C90B0 /* Info.plist */,
 			);
@@ -144,9 +169,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52351600235808D8000C90B0 /* ViewController.swift in Sources */,
+				52351600235808D8000C90B0 /* SelectionViewController.swift in Sources */,
 				442852822358F967002CD224 /* LoanController.swift in Sources */,
+				441318BD235A53FA00D9017D /* LoanCalculatorViewController.swift in Sources */,
 				523515FC235808D8000C90B0 /* AppDelegate.swift in Sources */,
+				441318C1235A54A100D9017D /* LoanResultTableViewCell.swift in Sources */,
+				441318BF235A542A00D9017D /* LoanLibraryTableViewController.swift in Sources */,
 				523515FE235808D8000C90B0 /* SceneDelegate.swift in Sources */,
 				4428528023581A3C002CD224 /* Loan.swift in Sources */,
 			);

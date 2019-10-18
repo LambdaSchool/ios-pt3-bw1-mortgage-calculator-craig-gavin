@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QKa-OO-Tt6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QKa-OO-Tt6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Selection View Controller-->
         <scene sceneID="2ih-6U-r1C">
             <objects>
-                <viewController id="pyS-5m-SXX" sceneMemberID="viewController">
+                <viewController id="pyS-5m-SXX" customClass="SelectionViewController" customModule="PalmMortgageCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cOz-gy-imN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="fdc-yG-qfW" kind="show" id="gsC-e2-AWA"/>
+                                            <action selector="loanCalculatorButtonTapped:" destination="pyS-5m-SXX" eventType="touchUpInside" id="O3d-Y1-Tjh"/>
+                                            <segue destination="fdc-yG-qfW" kind="show" identifier="ShowCalculatorSegue" id="gsC-e2-AWA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brF-ZT-MN9">
@@ -37,7 +38,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="p51-JM-lXB" kind="show" id="TWv-JC-LJS"/>
+                                            <action selector="loanLibraryButtonTapped:" destination="pyS-5m-SXX" eventType="touchUpInside" id="4cx-bZ-uhv"/>
+                                            <segue destination="p51-JM-lXB" kind="show" identifier="ShowLibrarySegue" id="TWv-JC-LJS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -61,13 +63,13 @@
         <!--Loan Library-->
         <scene sceneID="QN0-Km-N3C">
             <objects>
-                <tableViewController id="p51-JM-lXB" sceneMemberID="viewController">
+                <tableViewController id="p51-JM-lXB" customClass="LoanLibraryTableViewController" customModule="PalmMortgageCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pbb-FT-iai">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bTV-tq-3EI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoanCell" id="bTV-tq-3EI" customClass="LoanResultTableViewCell" customModule="PalmMortgageCalc" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bTV-tq-3EI" id="0xU-A8-cM3">
@@ -87,7 +89,7 @@
                     <navigationItem key="navigationItem" title="Loan Library" id="WpN-2l-kiA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0xo-R3-Vhq">
                             <connections>
-                                <segue destination="fdc-yG-qfW" kind="presentation" id="Ebs-Ws-OdA"/>
+                                <segue destination="fdc-yG-qfW" kind="presentation" identifier="ModifyLoanFromLibrarySegue" id="Ebs-Ws-OdA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -97,51 +99,51 @@
             </objects>
             <point key="canvasLocation" x="497" y="455"/>
         </scene>
-        <!--View Controller-->
+        <!--Loan Calculator View Controller-->
         <scene sceneID="4MN-Po-sMg">
             <objects>
-                <viewController id="fdc-yG-qfW" sceneMemberID="viewController">
+                <viewController id="fdc-yG-qfW" customClass="LoanCalculatorViewController" customModule="PalmMortgageCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="31X-BW-sPW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eH3-o1-IpO">
-                                <rect key="frame" x="20" y="160" width="374" height="95"/>
+                                <rect key="frame" x="20" y="160" width="374" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loan Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHn-cu-JSu">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Home, Car, Business, etc." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bM9-w2-ONh">
-                                        <rect key="frame" x="0.0" y="61" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="56" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="UU1-rl-w1V">
-                                <rect key="frame" x="20" y="315" width="374" height="210.5"/>
+                                <rect key="frame" x="20" y="310" width="374" height="208.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4E0-j9-9xZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="31.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Principal Loan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qLK-Hu-Skh">
-                                        <rect key="frame" x="0.0" y="58.5" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="56.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Years" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4HY-Be-5cb">
-                                        <rect key="frame" x="0.0" y="117.5" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="115.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest Rate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4w2-wg-tUy">
-                                        <rect key="frame" x="0.0" y="176.5" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="174.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -151,7 +153,11 @@
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="cancel" id="RhZ-hQ-ggr"/>
+                                    <barButtonItem systemItem="cancel" id="RhZ-hQ-ggr">
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="fdc-yG-qfW" id="4Ox-K7-eGM"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -167,6 +173,12 @@
                         <viewLayoutGuide key="safeArea" id="Olq-l0-cF0"/>
                     </view>
                     <navigationItem key="navigationItem" id="9AC-KB-AwX"/>
+                    <connections>
+                        <outlet property="loanInterestRateTextField" destination="4w2-wg-tUy" id="LFH-5S-BNw"/>
+                        <outlet property="loanPrincipalTextField" destination="qLK-Hu-Skh" id="aez-kB-qZl"/>
+                        <outlet property="loanTermTextField" destination="4HY-Be-5cb" id="NJ8-gq-5fT"/>
+                        <outlet property="loanTypeTextField" destination="bM9-w2-ONh" id="0Wk-hU-KzG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yy2-LW-L6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
