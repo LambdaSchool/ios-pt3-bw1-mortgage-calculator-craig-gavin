@@ -31,7 +31,7 @@ class LoanController {
         let timeFactor = pow((1 + (loan.rate / 12)), (loan.paymentsPerPeriod * loan.years))
         let discountFactor = (timeFactor - 1) / (timeFactor * (loan.rate / 12))
         
-        return principal / discountFactor
+        return ((principal / discountFactor)*100).rounded() / 100
     }
     
     // This function takes in a Loan and calculates the monthly interest payment included in the loan payment
@@ -40,7 +40,7 @@ class LoanController {
         guard let loan = loan else { fatalError("interestAmount called without a loan value") }
         let principal = loan.principal
         
-        return principal * (loan.rate / (loan.paymentsPerPeriod))
+        return ((principal * (loan.rate / (loan.paymentsPerPeriod)))*100).rounded() / 100
     }
     
     // This function takes in a Loan and calculates the monthly principal payment included in the loan payment
@@ -62,24 +62,24 @@ class LoanController {
         let monthlyPayment = paymentAmount(loan)  // the monthly payment will not change, so it is set outside the loop
         
         //  I set variables/constants for these just to make it easier to call them in the while loop
-        var currentPrincipal = loan.principal
+        var currentPrincipal = (loan.principal * 100).rounded() / 100
         let years = loan.years
         let rate = loan.rate
         let downPayment = loan.downPayment
         let paymentsPerPeriod = loan.paymentsPerPeriod
         let additionalPrincipal = loan.additionalPrincipal
 
-        while currentPrincipal >= 0 {
+        while currentPrincipal > monthlyPayment {
             let currentInterestPaid = interestAmountPaid(newLoanValues)
             cumulativeInterestPaid = cumulativeInterestPaid + currentInterestPaid
-            currentPrincipal = currentPrincipal - (monthlyPayment - currentInterestPaid + additionalPrincipal)
+            currentPrincipal = ((currentPrincipal - (monthlyPayment - currentInterestPaid + additionalPrincipal)) * 100).rounded() / 100
             
             newLoanValues = Loan(principal: currentPrincipal, years: years, rate: rate, downPayment: downPayment, paymentsPerPeriod: paymentsPerPeriod, additionalPrincipal: additionalPrincipal)
             
-            // TODO:  need to add 'final payment' data, which will be different than all the rest.
+            
         }
         
-        return cumulativeInterestPaid
+        return (cumulativeInterestPaid * 100).rounded() / 100
     }
     
 }
