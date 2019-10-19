@@ -88,3 +88,14 @@ class LoanLibraryTableViewController: UITableViewController {
     */
 
 }
+
+// MARK: - Table View Data Source
+
+// **Was going to add extensions, but it is giving me a warning of redundant because of the override func on line 30 in this case.  Should the override func be prepare(for segue:....)?
+
+//extension LoanLibraryTableViewController: UITableViewDataSource {
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//
+//    }
+//}
