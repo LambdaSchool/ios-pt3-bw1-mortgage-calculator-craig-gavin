@@ -70,14 +70,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoanCell" id="bTV-tq-3EI" customClass="LoanResultTableViewCell" customModule="PalmMortgageCalc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bTV-tq-3EI" id="0xU-A8-cM3">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loan Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pan-Nt-Wtk">
-                                            <rect key="frame" x="20" y="11" width="79" height="21.5"/>
+                                            <rect key="frame" x="20" y="11" width="79" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -227,6 +227,12 @@
                                     <barButtonItem systemItem="cancel" id="RhZ-hQ-ggr">
                                         <connections>
                                             <action selector="cancelButtonTapped:" destination="fdc-yG-qfW" id="4Ox-K7-eGM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Z7K-aF-b3p"/>
+                                    <barButtonItem systemItem="save" id="h2Z-ct-xgL">
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="fdc-yG-qfW" id="TA9-cj-Y3O"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
