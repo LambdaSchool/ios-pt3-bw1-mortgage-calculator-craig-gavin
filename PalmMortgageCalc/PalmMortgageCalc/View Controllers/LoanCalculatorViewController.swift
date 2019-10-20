@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol AddLoanDelegate {
+    func loanWasAdd(_ loan: Loan)
+}
+
 class LoanCalculatorViewController: UIViewController {
     
     // MARK: Properties
+    var delegate: AddLoanDelegate?
     
     
     // MARK: Outlets
@@ -29,6 +34,15 @@ class LoanCalculatorViewController: UIViewController {
     // MARK: Actions
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let loanType = loanTypeTextField.text,
+            let principal = Double(loanPrincipalTextField.text),
+            let loanTerm = loanTermTextField.text,
+            let interestRate = loanInterestRateTextField.text else { return }
+        
+        // TODO: hard coded in downPayment, paymentsPerPeriod, and additionalPrincipal.  Need to fix that
+        var loan = Loan(principal: principal, years: loanTerm, rate: interestRate, downPayment: 0, paymentsPerPeriod: 12, additionalPrincipal: 0)
     }
     
     

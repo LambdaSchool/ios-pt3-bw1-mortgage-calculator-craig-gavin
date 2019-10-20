@@ -19,7 +19,7 @@ class SelectionViewController: UIViewController {
     }
     
     // MARK: Actions
-    @IBAction func loanCalculatorButtonTapped(_ sender: UIButton) {
+    @IBAction func loanCalculatorButtonTapped(_ sender: UIButton) {        
     }
     @IBAction func loanLibraryButtonTapped(_ sender: UIButton) {
     }
