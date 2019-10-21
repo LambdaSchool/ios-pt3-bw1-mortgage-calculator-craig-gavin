@@ -23,8 +23,6 @@ class SelectionViewController: UIViewController {
     }
     @IBAction func loanLibraryButtonTapped(_ sender: UIButton) {
     }
-    
-
 
 }
 
