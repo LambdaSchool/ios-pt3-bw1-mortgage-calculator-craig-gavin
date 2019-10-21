@@ -63,6 +63,7 @@ class LoanController {
         let monthlyPayment = paymentAmount(loan)  // the monthly payment will not change, so it is set outside the loop
         
         //  I set variables/constants for these just to make it easier to call them in the while loop
+        let type = loan.type
         var currentPrincipal = (loan.principal * 100).rounded() / 100
         let years = loan.years
         let rate = loan.rate
@@ -76,7 +77,7 @@ class LoanController {
             cumulativeInterestPaid = cumulativeInterestPaid + currentInterestPaid
             currentPrincipal = ((currentPrincipal - (monthlyPayment - currentInterestPaid + additionalPrincipal)) * 100).rounded() / 100
             
-            newLoanValues = Loan(principal: currentPrincipal, years: years, rate: rate, downPayment: downPayment, paymentsPerPeriod: paymentsPerPeriod, additionalPrincipal: additionalPrincipal)
+            newLoanValues = Loan(type: type, principal: currentPrincipal, years: years, rate: rate, downPayment: downPayment, paymentsPerPeriod: paymentsPerPeriod, additionalPrincipal: additionalPrincipal)
         }
         
         totalNumberOfPayments += 1

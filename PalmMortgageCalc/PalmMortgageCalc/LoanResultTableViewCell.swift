@@ -9,6 +9,7 @@
 import UIKit
 
 class LoanResultTableViewCell: UITableViewCell {
+    @IBOutlet weak var loanTypeLabel: UILabel!
     
     var loan: Loan? {
         didSet {
@@ -17,12 +18,8 @@ class LoanResultTableViewCell: UITableViewCell {
     }
     
     private func updateViews() {
-        
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+        guard let loan = loan else { return }
+        loanTypeLabel.text = loan.type
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

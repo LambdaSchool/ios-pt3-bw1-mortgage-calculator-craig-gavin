@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddLoanDelegate {
-    func loanWasAdd(_ loan: Loan)
+    func loanWasAdded(_ loan: Loan)
 }
 
 class LoanCalculatorViewController: UIViewController {
@@ -23,8 +23,8 @@ class LoanCalculatorViewController: UIViewController {
     @IBOutlet weak var loanPrincipalTextField: UITextField!
     @IBOutlet weak var loanTermTextField: UITextField!
     @IBOutlet weak var loanInterestRateTextField: UITextField!
-    @IBOutlet weak var loanDownPayment: UITextField!
-    @IBOutlet weak var loanAdditionalPayment: UITextField!
+    @IBOutlet weak var loanDownPaymentTextField: UITextField!
+    @IBOutlet weak var loanAdditionalPaymentTextField: UITextField!
     
 
     override func viewDidLoad() {
@@ -42,19 +42,19 @@ class LoanCalculatorViewController: UIViewController {
             let loanPrincipal = loanPrincipalTextField.text,
             let loanTerm = loanTermTextField.text,
             let interestRate = loanInterestRateTextField.text,
-            let loanDownPayment = loanDownPayment.text,
-            let loanAdditionalPayment = loanAdditionalPayment.text else { return }
+            let loanDownPayment = loanDownPaymentTextField.text,
+            let loanAdditionalPayment = loanAdditionalPaymentTextField.text else { return }
         guard let principal = Double(loanPrincipal),
             let term = Double(loanTerm),
             let rate = Double(interestRate),
             let downPayment = Double(loanDownPayment),
             let additionalPayment = Double(loanAdditionalPayment) else { return }
         
+        let loan = Loan(type: loanType, principal: principal, years: term, rate: (rate / 100), downPayment: downPayment, paymentsPerPeriod: 12, additionalPrincipal: additionalPayment)
         
-        // TODO: Need to pass the loanType to the loanLibrary
-        let loan = Loan(principal: principal, years: term, rate: (rate / 100), downPayment: downPayment, paymentsPerPeriod: 12, additionalPrincipal: additionalPayment)
-        
-        delegate?.loanWasAdd(loan)
+        delegate?.loanWasAdded(loan)
+        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -70,3 +70,27 @@ class LoanCalculatorViewController: UIViewController {
     */
 
 }
+
+extension LoanCalculatorViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text,
+            !text.isEmpty {
+            switch textField {
+            case loanTypeTextField:
+                loanPrincipalTextField.becomeFirstResponder()
+            case loanPrincipalTextField:
+                loanTermTextField.becomeFirstResponder()
+            case loanTermTextField:
+                loanInterestRateTextField.becomeFirstResponder()
+            case loanInterestRateTextField:
+                loanDownPaymentTextField.becomeFirstResponder()
+            case loanDownPaymentTextField:
+                loanAdditionalPaymentTextField.becomeFirstResponder()
+            default:
+                textField.resignFirstResponder()
+            }
+        }
+        return false
+    }
+}
+
