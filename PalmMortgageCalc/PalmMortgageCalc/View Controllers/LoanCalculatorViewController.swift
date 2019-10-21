@@ -23,6 +23,8 @@ class LoanCalculatorViewController: UIViewController {
     @IBOutlet weak var loanPrincipalTextField: UITextField!
     @IBOutlet weak var loanTermTextField: UITextField!
     @IBOutlet weak var loanInterestRateTextField: UITextField!
+    @IBOutlet weak var loanDownPayment: UITextField!
+    @IBOutlet weak var loanAdditionalPayment: UITextField!
     
 
     override func viewDidLoad() {
@@ -39,13 +41,20 @@ class LoanCalculatorViewController: UIViewController {
         guard let loanType = loanTypeTextField.text,
             let loanPrincipal = loanPrincipalTextField.text,
             let loanTerm = loanTermTextField.text,
-            let interestRate = loanInterestRateTextField.text else { return }
+            let interestRate = loanInterestRateTextField.text,
+            let loanDownPayment = loanDownPayment.text,
+            let loanAdditionalPayment = loanAdditionalPayment.text else { return }
         guard let principal = Double(loanPrincipal),
             let term = Double(loanTerm),
-            let rate = Double(interestRate) else { return }
+            let rate = Double(interestRate),
+            let downPayment = Double(loanDownPayment),
+            let additionalPayment = Double(loanAdditionalPayment) else { return }
         
-        // TODO: hard coded in downPayment, paymentsPerPeriod, and additionalPrincipal.  Need to fix that
-        var loan = Loan(principal: principal, years: term, rate: rate, downPayment: 0, paymentsPerPeriod: 12, additionalPrincipal: 0)
+        
+        // TODO: Need to pass the loanType to the loanLibrary
+        let loan = Loan(principal: principal, years: term, rate: (rate / 100), downPayment: downPayment, paymentsPerPeriod: 12, additionalPrincipal: additionalPayment)
+        
+        delegate?.loanWasAdd(loan)
     }
     
     

@@ -10,6 +10,8 @@ import UIKit
 
 class LoanLibraryTableViewController: UITableViewController {
 
+    var loans: [Loan] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,25 +24,19 @@ class LoanLibraryTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return loans.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LoanCell", for: indexPath) as? LoanResultTableViewCell else { return UITableViewCell() }
 
-        // Configure the cell...
-
+        let loan = loans[indexPath.row]
+        cell.loan = loan
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -59,21 +55,6 @@ class LoanLibraryTableViewController: UITableViewController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
     }
     */
 
@@ -99,3 +80,10 @@ class LoanLibraryTableViewController: UITableViewController {
 //
 //    }
 //}
+
+extension LoanLibraryTableViewController: AddLoanDelegate {
+    func loanWasAdd(_ loan: Loan) {
+        loans.append(loan)
+        tableView.reloadData()
+    }
+}

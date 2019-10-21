@@ -9,6 +9,16 @@
 import UIKit
 
 class LoanResultTableViewCell: UITableViewCell {
+    
+    var loan: Loan? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    private func updateViews() {
+        
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
