@@ -37,12 +37,15 @@ class LoanCalculatorViewController: UIViewController {
     }
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let loanType = loanTypeTextField.text,
-            let principal = Double(loanPrincipalTextField.text),
+            let loanPrincipal = loanPrincipalTextField.text,
             let loanTerm = loanTermTextField.text,
             let interestRate = loanInterestRateTextField.text else { return }
+        guard let principal = Double(loanPrincipal),
+            let term = Double(loanTerm),
+            let rate = Double(interestRate) else { return }
         
         // TODO: hard coded in downPayment, paymentsPerPeriod, and additionalPrincipal.  Need to fix that
-        var loan = Loan(principal: principal, years: loanTerm, rate: interestRate, downPayment: 0, paymentsPerPeriod: 12, additionalPrincipal: 0)
+        var loan = Loan(principal: principal, years: term, rate: rate, downPayment: 0, paymentsPerPeriod: 12, additionalPrincipal: 0)
     }
     
     
