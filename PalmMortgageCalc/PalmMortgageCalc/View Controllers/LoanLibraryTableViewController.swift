@@ -82,7 +82,7 @@ class LoanLibraryTableViewController: UITableViewController {
 //}
 
 extension LoanLibraryTableViewController: AddLoanDelegate {
-    func loanWasAdd(_ loan: Loan) {
+    func loanWasAdded(_ loan: Loan) {
         loans.append(loan)
         tableView.reloadData()
     }
