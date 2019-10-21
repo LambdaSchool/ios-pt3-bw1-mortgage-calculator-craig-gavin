@@ -16,6 +16,7 @@ class LoanCalculatorViewController: UIViewController {
     
     // MARK: Properties
     var delegate: AddLoanDelegate?
+    var loan: Loan?
     
     
     // MARK: Outlets
@@ -34,9 +35,12 @@ class LoanCalculatorViewController: UIViewController {
     }
     
     // MARK: Actions
-    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
+    // I temporarily commented out the cancel button dismiss code to test out an unwind segue.
+//    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+//      dismiss(animated: true, completion: nil)
+//    }
+    
+    // I don't know a better way to do this. I did guards to see if the text fields had user input and then I converted the numbers to Doubles.
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let loanType = loanTypeTextField.text,
             let loanPrincipal = loanPrincipalTextField.text,
@@ -57,20 +61,27 @@ class LoanCalculatorViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // This is a temporary test code attached to the Cancel button. It uses an unwind segue to pass information instead of a delegate.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let loanType = loanTypeTextField.text,
+            let loanPrincipal = loanPrincipalTextField.text,
+            let loanTerm = loanTermTextField.text,
+            let interestRate = loanInterestRateTextField.text,
+            let loanDownPayment = loanDownPaymentTextField.text,
+            let loanAdditionalPayment = loanAdditionalPaymentTextField.text else { return }
+        guard let principal = Double(loanPrincipal),
+            let term = Double(loanTerm),
+            let rate = Double(interestRate),
+            let downPayment = Double(loanDownPayment),
+            let additionalPayment = Double(loanAdditionalPayment) else { return }
+        
+            loan = Loan(type: loanType, principal: principal, years: term, rate: (rate / 100), downPayment: downPayment, paymentsPerPeriod: 12, additionalPrincipal: additionalPayment)
     }
-    */
-
+    
 }
 
+// This jumps from text field to text field when the user taps the Enter key.
 extension LoanCalculatorViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text,
