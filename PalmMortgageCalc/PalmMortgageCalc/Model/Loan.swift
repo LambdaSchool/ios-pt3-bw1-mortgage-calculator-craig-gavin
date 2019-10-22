@@ -10,7 +10,7 @@ import Foundation
 
 // I named it "Loan" instead of Mortgage because I think it is more general to any loan, not just a mortgage
 
-struct Loan: Codable {
+struct Loan: Equatable, Codable {
     var type: String       // a user selected string value to identify the loan
     var principal: Double   // the initial loan value and the principal remaining after each payment
     var years: Double       // number of years in the term of the loan
