@@ -12,18 +12,9 @@ class LoanController {
     
     // MARK: Properties
     var loan: Loan?
-    var downPaymentProxy: Double = 0
-//    var loanPayment: Double
-//    var interestPayment: Double
-//
-//    init(loanPayment: Double, interestPayment: Double) {
-//        self.loanPayment = loanPayment
-//        self.interestPayment = interestPayment
-//    }
     
     
     // MARK: Methods
-    
     // This function takes in a Loan and calculates the monthly payment amount for a loan, returning a Double
     // The equation is: Payment = Principal / DiscountFactor
     // DiscountFactor is ((1 + i)^n - 1) / (i * (1 + i)^n)  where i = interest rate / 12, n = years * paymentsPerYear
@@ -48,13 +39,14 @@ class LoanController {
     
     // This function takes in a Loan and calculates the monthly principal payment included in the loan payment
     // If the user selects a value for additionalPrincipal, the function adds that as well to get the total principal paid for that payment
-    func principalAmountPaid(_ loan: Loan?) -> Double {
-        guard let loan = loan else { fatalError("principalAmountPaid called without a loan value") }
-        let totalPayment = paymentAmount(loan)
-        let interestAmount = interestAmountPaid(loan)
-        
-        return totalPayment - interestAmount + loan.additionalPrincipal
-    }
+    // I don't think we need this method so I am commenting it out to see if it produces an error.  If not, we can delete it.
+//    func principalAmountPaid(_ loan: Loan?) -> Double {
+//        guard let loan = loan else { fatalError("principalAmountPaid called without a loan value") }
+//        let totalPayment = paymentAmount(loan)
+//        let interestAmount = interestAmountPaid(loan)
+//
+//        return totalPayment - interestAmount + loan.additionalPrincipal
+//    }
     
     // This function takes in a Loan and returns the cumulative interest paid over the life of the loan as well as the total number of payments.  Note: to call the result, we need to use the notation as follows:  If we declare a variable of loan1 = lifeOfLoanAmounts(xxxxxxx), we would need to use loan1.totalInterest or loan1.numberPayments
     func lifeOfLoanAmounts(_ loan: Loan?) -> (totalInterest: Double, numberPayments: Int) {
@@ -74,10 +66,15 @@ class LoanController {
         let paymentsPerPeriod = loan.paymentsPerPeriod
         let additionalPrincipal = loan.additionalPrincipal
 
+        // This first while loop only runs if the downpayment is greater than zero.
+        // It reduces the principal by the downpayment amount, sets the downpayment to zero, and then continues to the next while loop.
         while downPayment > 0 {
             currentPrincipal = currentPrincipal - downPayment
             downPayment = 0
         }
+        
+        // This second while loop iterates over the total number of monthly payment over the life of the loan while the remaining principal is still greater than the monthly payment.
+        // It calculates the cumulative interest paid over the life of the loan and also counts the total number of payments.
         while currentPrincipal > monthlyPayment {
             totalNumberOfPayments += 1
             let currentInterestPaid = interestAmountPaid(newLoanValues)
@@ -87,6 +84,8 @@ class LoanController {
             newLoanValues = Loan(type: type, principal: currentPrincipal, years: years, rate: rate, downPayment: downPayment, paymentsPerPeriod: paymentsPerPeriod, additionalPrincipal: additionalPrincipal)
         }
         
+        // When the while loop ends, there will be a residual value in the principal (it will be between zero and the monthly payment amount).
+        // The next two lines adds the interest paid on that residual value for the final loan payment.
         totalNumberOfPayments += 1
         cumulativeInterestPaid = cumulativeInterestPaid + monthlyPayment - currentPrincipal
         

@@ -10,7 +10,6 @@ import UIKit
 
 protocol AddLoanDelegate {
     func loanWasAdded(_ loan: Loan)
-    func calculateInterest(_ loan: Loan)
 }
 
 class LoanCalculatorViewController: UIViewController {

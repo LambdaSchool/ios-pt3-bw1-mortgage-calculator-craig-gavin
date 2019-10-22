@@ -9,10 +9,23 @@
 import UIKit
 
 class LoanResultTableViewCell: UITableViewCell {
+    
+    // MARK: Properties
+    // Initialized an instance of LoanController in order to calculate the total interest paid.
+    let loancontroller = LoanController()
+    var loan: Loan? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    // MARK: Outlets
     @IBOutlet weak var loanTypeLabel: UILabel!
     @IBOutlet weak var totalInterestPaid: UILabel!
     
-    let loancontroller = LoanController()
+
+    // MARK: Methods
+    // CurrencyFormatter will take in a Double, convert it to an NSNumber and return a string, formatted in US Dollars
     func currencyFormatter(_ number: Double) -> String {
     let formatter = NumberFormatter()
         formatter.usesGroupingSeparator = true
@@ -22,11 +35,7 @@ class LoanResultTableViewCell: UITableViewCell {
         guard let formattedCurrencyString = formatter.string(from: newNumber) else { fatalError("Error converting number to string") }
         return formattedCurrencyString
     }
-    var loan: Loan? {
-        didSet {
-            updateViews()
-        }
-    }
+
     
     private func updateViews() {
         guard let loan = loan
