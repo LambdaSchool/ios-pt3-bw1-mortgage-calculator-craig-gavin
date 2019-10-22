@@ -12,6 +12,7 @@ class LoanController {
     
     // MARK: Properties
     var loan: Loan?
+    var downPaymentProxy: Double = 0
 //    var loanPayment: Double
 //    var interestPayment: Double
 //
@@ -22,16 +23,17 @@ class LoanController {
     
     
     // MARK: Methods
+    
     // This function takes in a Loan and calculates the monthly payment amount for a loan, returning a Double
     // The equation is: Payment = Principal / DiscountFactor
     // DiscountFactor is ((1 + i)^n - 1) / (i * (1 + i)^n)  where i = interest rate / 12, n = years * paymentsPerYear
     func paymentAmount(_ loan: Loan?) -> Double {
         guard let loan = loan else { fatalError("paymentAmount called without a loan value") }
-        let principal = loan.principal
+        let principal = (loan.principal - loan.downPayment)
         let timeFactor = pow((1 + (loan.rate / 12)), (loan.paymentsPerPeriod * loan.years))
         let discountFactor = (timeFactor - 1) / (timeFactor * (loan.rate / 12))
         
-        return ((principal / discountFactor)*100).rounded() / 100
+        return (((principal / discountFactor) + loan.additionalPrincipal) * 100).rounded() / 100
     }
     
     // This function takes in a Loan and calculates the monthly interest payment included in the loan payment
@@ -41,6 +43,7 @@ class LoanController {
         let principal = loan.principal
         
         return ((principal * (loan.rate / (loan.paymentsPerPeriod)))*100).rounded() / 100
+        
     }
     
     // This function takes in a Loan and calculates the monthly principal payment included in the loan payment
@@ -67,10 +70,14 @@ class LoanController {
         var currentPrincipal = (loan.principal * 100).rounded() / 100
         let years = loan.years
         let rate = loan.rate
-        let downPayment = loan.downPayment
+        var downPayment = loan.downPayment
         let paymentsPerPeriod = loan.paymentsPerPeriod
         let additionalPrincipal = loan.additionalPrincipal
 
+        while downPayment > 0 {
+            currentPrincipal = currentPrincipal - downPayment
+            downPayment = 0
+        }
         while currentPrincipal > monthlyPayment {
             totalNumberOfPayments += 1
             let currentInterestPaid = interestAmountPaid(newLoanValues)
