@@ -10,7 +10,7 @@ import UIKit
 
 class LoanLibraryTableViewController: UITableViewController {
 
-    var loans: [Loan] = []
+    let loanmodelcontroller = LoanModelController()
     let loancontroller = LoanController()
     
     override func viewDidLoad() {
@@ -19,29 +19,29 @@ class LoanLibraryTableViewController: UITableViewController {
     }
     
     // Trying to get the scene to go from the Calculator to the Library; but when arriving at the Calculator via the start scene, it doesn't work.  Tried to implement an unwind segue but I can't seem to get that to work properly either.
-    @IBAction func unwindToLoanLibraryVC(_ unwindSegue: UIStoryboardSegue) {}
-    @IBAction func unwindFromLoanCalcVC(_ sender: UIStoryboardSegue) {
-        
-        if sender.source is LoanCalculatorViewController {
-            if let senderVC = sender.source as? LoanCalculatorViewController {
-                guard let loan = senderVC.loan else { return }
-                loans.append(loan)
-            }
-            tableView.reloadData()
-        }
-    }
+//    @IBAction func unwindToLoanLibraryVC(_ unwindSegue: UIStoryboardSegue) {}
+//    @IBAction func unwindFromLoanCalcVC(_ sender: UIStoryboardSegue) {
+//
+//        if sender.source is LoanCalculatorViewController {
+//            if let senderVC = sender.source as? LoanCalculatorViewController {
+//                guard let loan = senderVC.loan else { return }
+//                loanmodelcontroller.loans.append(loan)
+//            }
+//            tableView.reloadData()
+//        }
+//    }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return loans.count
+        return  loanmodelcontroller.loans.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LoanCell", for: indexPath) as? LoanResultTableViewCell else { return UITableViewCell() }
 
-        let loan = loans[indexPath.row]
+        let loan = loanmodelcontroller.loans[indexPath.row]
         cell.loan = loan
         
         return cell
@@ -81,7 +81,7 @@ class LoanLibraryTableViewController: UITableViewController {
 
 extension LoanLibraryTableViewController: AddLoanDelegate {
     func loanWasAdded(_ loan: Loan) {
-        loans.append(loan)
+        loanmodelcontroller.loans.append(loan)
         tableView.reloadData()
     }
     

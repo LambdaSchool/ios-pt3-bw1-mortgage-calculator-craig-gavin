@@ -37,6 +37,7 @@ class LoanCalculatorViewController: UIViewController {
     // MARK: Actions
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
       dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     // I don't know a better way to do this. I did guards to see if the text fields had user input and then I converted the numbers to Doubles.
