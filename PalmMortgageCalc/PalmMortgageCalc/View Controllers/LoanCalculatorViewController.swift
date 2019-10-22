@@ -18,7 +18,6 @@ class LoanCalculatorViewController: UIViewController {
     // MARK: Properties
     var delegate: AddLoanDelegate?
     var loan: Loan?
-    let loancontroller = LoanController()
     
     
     // MARK: Outlets
@@ -56,30 +55,11 @@ class LoanCalculatorViewController: UIViewController {
             let additionalPayment = Double(loanAdditionalPayment) else { return }
         
         let loan = Loan(type: loanType, principal: principal, years: term, rate: (rate / 100), downPayment: downPayment, paymentsPerPeriod: 12, additionalPrincipal: additionalPayment)
-        let totalInterestPaid = loancontroller.lifeOfLoanAmounts(loan).totalInterest
         
         delegate?.loanWasAdded(loan)
         dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
-    
-
-    // This is a temporary test code attached to the Cancel button. It uses an unwind segue to pass information instead of a delegate.
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let loanType = loanTypeTextField.text,
-//            let loanPrincipal = loanPrincipalTextField.text,
-//            let loanTerm = loanTermTextField.text,
-//            let interestRate = loanInterestRateTextField.text,
-//            let loanDownPayment = loanDownPaymentTextField.text,
-//            let loanAdditionalPayment = loanAdditionalPaymentTextField.text else { return }
-//        guard let principal = Double(loanPrincipal),
-//            let term = Double(loanTerm),
-//            let rate = Double(interestRate),
-//            let downPayment = Double(loanDownPayment),
-//            let additionalPayment = Double(loanAdditionalPayment) else { return }
-//
-//            loan = Loan(type: loanType, principal: principal, years: term, rate: (rate / 100), downPayment: downPayment, paymentsPerPeriod: 12, additionalPrincipal: additionalPayment)
-//    }
     
 }
 
