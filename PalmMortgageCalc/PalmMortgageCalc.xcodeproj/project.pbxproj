@@ -12,7 +12,6 @@
 		441318C1235A54A100D9017D /* LoanResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441318C0235A54A100D9017D /* LoanResultTableViewCell.swift */; };
 		4428528023581A3C002CD224 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4428527F23581A3C002CD224 /* Loan.swift */; };
 		442852822358F967002CD224 /* LoanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442852812358F967002CD224 /* LoanController.swift */; };
-		445419AC235F7C7D0004A7B4 /* LoanModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445419AB235F7C7D0004A7B4 /* LoanModelController.swift */; };
 		523515FC235808D8000C90B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523515FB235808D8000C90B0 /* AppDelegate.swift */; };
 		523515FE235808D8000C90B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523515FD235808D8000C90B0 /* SceneDelegate.swift */; };
 		52351600235808D8000C90B0 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523515FF235808D8000C90B0 /* SelectionViewController.swift */; };
@@ -28,7 +27,6 @@
 		441318C0235A54A100D9017D /* LoanResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanResultTableViewCell.swift; sourceTree = "<group>"; };
 		4428527F23581A3C002CD224 /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		442852812358F967002CD224 /* LoanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanController.swift; sourceTree = "<group>"; };
-		445419AB235F7C7D0004A7B4 /* LoanModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanModelController.swift; sourceTree = "<group>"; };
 		523515F8235808D8000C90B0 /* PalmMortgageCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalmMortgageCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523515FB235808D8000C90B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		523515FD235808D8000C90B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 				441318BB235A52B600D9017D /* Model */,
 				441318BA235A51FE00D9017D /* View Controllers */,
 				442852812358F967002CD224 /* LoanController.swift */,
-				445419AB235F7C7D0004A7B4 /* LoanModelController.swift */,
 				441318C0235A54A100D9017D /* LoanResultTableViewCell.swift */,
 				52351601235808D8000C90B0 /* Main.storyboard */,
 				52351604235808DA000C90B0 /* Assets.xcassets */,
@@ -184,7 +181,6 @@
 				523515FE235808D8000C90B0 /* SceneDelegate.swift in Sources */,
 				4428528023581A3C002CD224 /* Loan.swift in Sources */,
 				52F710E7235BB76F00113112 /* LoanDetailViewController.swift in Sources */,
-				445419AC235F7C7D0004A7B4 /* LoanModelController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
