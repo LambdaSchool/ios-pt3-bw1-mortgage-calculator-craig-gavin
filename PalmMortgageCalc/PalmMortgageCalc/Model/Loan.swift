@@ -31,4 +31,10 @@ struct Loan: Equatable, Codable {
     }
 }
 
-
+class LoanModelController {
+    var loans: [Loan] = []
+    
+    func addNewLoan(_ loan: Loan) {
+        loans.append(loan)
+    }
+}
