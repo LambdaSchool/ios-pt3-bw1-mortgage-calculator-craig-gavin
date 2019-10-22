@@ -30,3 +30,5 @@ struct Loan: Equatable, Codable {
         self.additionalPrincipal = additionalPrincipal
     }
 }
+
+

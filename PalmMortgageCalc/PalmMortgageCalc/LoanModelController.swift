@@ -6,13 +6,12 @@
 //  Copyright © 2019 Gavin Murphy. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class LoanModelController {
-    var loans: [Loan] = []
+    var loans: [Loan]
     
     func addLoan(_ loan: Loan) {
         loans.append(loan)
     }
-    
 }
