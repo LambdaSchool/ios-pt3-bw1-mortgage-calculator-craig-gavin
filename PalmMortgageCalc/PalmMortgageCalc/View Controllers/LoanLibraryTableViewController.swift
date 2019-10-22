@@ -11,6 +11,7 @@ import UIKit
 class LoanLibraryTableViewController: UITableViewController {
 
     var loans: [Loan] = []
+    let loancontroller = LoanController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,8 +80,13 @@ class LoanLibraryTableViewController: UITableViewController {
 }
 
 extension LoanLibraryTableViewController: AddLoanDelegate {
+    func calculateInterest(_ loan: Loan) {
+        var interestPaid = loancontroller.lifeOfLoanAmounts(loan).totalInterest
+    }
+    
     func loanWasAdded(_ loan: Loan) {
         loans.append(loan)
         tableView.reloadData()
     }
+    
 }

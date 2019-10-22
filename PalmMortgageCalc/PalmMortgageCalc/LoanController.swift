@@ -12,13 +12,13 @@ class LoanController {
     
     // MARK: Properties
     var loan: Loan?
-    var loanPayment: Double
-    var interestPayment: Double
-    
-    init(loanPayment: Double, interestPayment: Double) {
-        self.loanPayment = loanPayment
-        self.interestPayment = interestPayment
-    }
+//    var loanPayment: Double
+//    var interestPayment: Double
+//
+//    init(loanPayment: Double, interestPayment: Double) {
+//        self.loanPayment = loanPayment
+//        self.interestPayment = interestPayment
+//    }
     
     
     // MARK: Methods
