@@ -69,29 +69,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoanCell" id="bTV-tq-3EI" customClass="LoanResultTableViewCell" customModule="PalmMortgageCalc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoanCell" textLabel="k19-QD-KWR" detailTextLabel="rj9-AT-MEM" style="IBUITableViewCellStyleSubtitle" id="bTV-tq-3EI" customClass="LoanResultTableViewCell" customModule="PalmMortgageCalc" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bTV-tq-3EI" id="0xU-A8-cM3">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loan Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pan-Nt-Wtk">
-                                            <rect key="frame" x="20" y="11" width="79" height="21.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Loan Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k19-QD-KWR">
+                                            <rect key="frame" x="20" y="10" width="79" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Total Interest Paid:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rj9-AT-MEM">
+                                            <rect key="frame" x="20" y="31.5" width="105.5" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="pan-Nt-Wtk" firstAttribute="top" secondItem="0xU-A8-cM3" secondAttribute="topMargin" id="8x8-Wn-Pzo"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pan-Nt-Wtk" secondAttribute="trailing" constant="20" symbolic="YES" id="ccQ-7F-NRP"/>
-                                        <constraint firstItem="pan-Nt-Wtk" firstAttribute="leading" secondItem="0xU-A8-cM3" secondAttribute="leadingMargin" id="hOS-3P-xt2"/>
-                                        <constraint firstItem="pan-Nt-Wtk" firstAttribute="centerY" secondItem="0xU-A8-cM3" secondAttribute="centerY" id="xbp-JA-etT"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="loanTypeLabel" destination="pan-Nt-Wtk" id="2yL-61-b0c"/>
+                                    <outlet property="loanTypeLabel" destination="k19-QD-KWR" id="YtU-cc-qM3"/>
+                                    <outlet property="totalInterestPaid" destination="rj9-AT-MEM" id="u3i-va-NYq"/>
                                     <segue destination="dyx-Tx-g0d" kind="show" identifier="ShowLoanDetailSegue" id="LfH-8v-3kW"/>
                                 </connections>
                             </tableViewCell>
@@ -320,7 +323,7 @@
                                 <items>
                                     <barButtonItem systemItem="cancel" id="RhZ-hQ-ggr">
                                         <connections>
-                                            <segue destination="Q75-g8-CSJ" kind="unwind" unwindAction="unwindFromLoanCalcVC:" id="X98-BM-Zul"/>
+                                            <action selector="cancelButtonTapped:" destination="fdc-yG-qfW" id="AjI-fk-t8K"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Z7K-aF-b3p"/>
@@ -354,7 +357,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yy2-LW-L6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Q75-g8-CSJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="496" y="-302"/>
         </scene>
