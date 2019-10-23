@@ -74,25 +74,20 @@ class LoanLibraryTableViewController: UITableViewController {
 
 
     // MARK: - Navigation
-// I commented this one out.  I think the prepare for segue identifier needs to be the "ShowLoanDetailSegue" below this one
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ModifyLoanFromLibrarySegue" {
-//            guard let loanCalculatorVC = segue.destination as? LoanCalculatorViewController else { fatalError() }
-//            loanCalculatorVC.delegate = self
-//        }
-//    }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowLoanDetailSegue" {
-            guard let loanLibraryVC = segue.destination as? LoanDetailViewController,
-            let indexPath = tableView.indexPathForSelectedRow else { fatalError() }
-            
-            // loanLibraryVC.loan = loan[indexPath.row] -> can't figure out this last part
+        switch segue.identifier {
+        case "ModifyLoanFromLibrarySegue":
+                guard let loanCalculatorVC = segue.destination as? LoanCalculatorViewController else { fatalError() }
+                loanCalculatorVC.delegate = self
+        case "ShowLoanDetailSegue":
+            guard let loanDetailVC = segue.destination as? LoanDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow else {fatalError() }
+            loanDetailVC.loan = loanmodelcontroller!.loans[indexPath.row]
+        default:
+            return
         }
     }
-// loanLibraryVC = segue.destination as? LoanDetailViewController
 }
 
 extension LoanLibraryTableViewController: AddLoanDelegate {
