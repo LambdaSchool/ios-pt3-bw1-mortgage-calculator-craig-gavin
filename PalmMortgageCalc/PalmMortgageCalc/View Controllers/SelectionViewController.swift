@@ -20,21 +20,31 @@ class SelectionViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func loanCalculatorButtonTapped(_ sender: UIButton) {
-         func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "ShowCalculatorSegue" {
-                guard let loanCalculatorVC = segue.destination as? LoanCalculatorViewController else { fatalError() }
-                loanCalculatorVC.delegate = self
-            }
-        }
+
     }
     @IBAction func loanLibraryButtonTapped(_ sender: UIButton) {
+    }
+    
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "ShowCalculatorSegue":
+            guard let loanCalculatorVC = segue.destination as? LoanCalculatorViewController else { fatalError() }
+            loanCalculatorVC.delegateSelectionVC = self
+            performSegue(withIdentifier: "ShowLibrarySegue", sender: nil)
+        case "ShowLibrarySegue":
+            guard let loanLibraryVC = segue.destination as? LoanLibraryTableViewController else { fatalError() }
+        default:
+            return
+        }
     }
 
 }
 
-extension SelectionViewController: AddLoanDelegate {
+extension SelectionViewController: SelectionVCDelegate {
     func loanWasAdded(_ loan: Loan) {
         loanmodelcontroller.loans.append(loan)
+//        performSegue(withIdentifier: "ShowLibrarySegue", sender: nil)
+//        self.navigationController?.popViewController(animated: true)
         
         
 //        tableView.reloadData()

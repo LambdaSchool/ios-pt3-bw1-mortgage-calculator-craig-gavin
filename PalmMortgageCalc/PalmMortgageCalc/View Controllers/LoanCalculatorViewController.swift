@@ -11,11 +11,15 @@ import UIKit
 protocol AddLoanDelegate {
     func loanWasAdded(_ loan: Loan)
 }
+protocol SelectionVCDelegate {
+    func loanWasAdded(_ loan: Loan)
+}
 
 class LoanCalculatorViewController: UIViewController {
     
     // MARK: Properties
     var delegate: AddLoanDelegate?
+    var delegateSelectionVC: SelectionVCDelegate?
     var loan: Loan?
     
     
@@ -57,6 +61,7 @@ class LoanCalculatorViewController: UIViewController {
         let loan = Loan(type: loanType, principal: principal, years: term, rate: (rate / 100), downPayment: downPayment, paymentsPerPeriod: 12, additionalPrincipal: additionalPayment)
         
         delegate?.loanWasAdded(loan)
+        delegateSelectionVC?.loanWasAdded(loan)
         dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
