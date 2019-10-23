@@ -20,24 +20,35 @@ class LoanDetailViewController: UIViewController {
     @IBOutlet weak var downPaymentLabel: UILabel!
     @IBOutlet weak var additionalPaymentLabel: UILabel!
     
-//    var loan: Loan? {
-//        didSet {
-//            updateViews()
-//        }
-//    }
+    var loan: Loan? {
+        didSet {
+            updateViews()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //loanController.loan = loanController
-        //updateViews()
+//        updateViews()
         // Do any additional setup after loading the view.
     }
     
-//    private func updateViews() {
-//        guard let loan = loan, isViewLoaded else { return } // not sure if this is right guard let
+    func currencyFormatter(_ number: Double) -> String {
+       let formatter = NumberFormatter()
+           formatter.usesGroupingSeparator = true
+           formatter.numberStyle = .currency
+           formatter.locale = Locale.current
+       let newNumber = NSNumber(value: number)
+       guard let formattedCurrencyString = formatter.string(from: newNumber) else { fatalError("Error converting number to string") }
+       return formattedCurrencyString
+       }
+
+    
+    private func updateViews() {
+        guard let loan = loan else { return } // not sure if this is right guard let
         
-        // loanPrincipalLabel.text = loan.loan **this is wrong need to figure this out, and other IBOutlets as well
-    //}
+        loanPrincipalLabel.text = currencyFormatter(loan.principal)
+    }
     
 }
