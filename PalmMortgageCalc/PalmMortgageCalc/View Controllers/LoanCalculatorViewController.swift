@@ -20,6 +20,7 @@ class LoanCalculatorViewController: UIViewController {
     // MARK: Properties
     var delegate: AddLoanDelegate?
     var delegateSelectionVC: SelectionVCDelegate?
+    let loanmodelcontroller = LoanModelController()
     var loan: Loan?
     
     
@@ -62,8 +63,7 @@ class LoanCalculatorViewController: UIViewController {
         
         delegate?.loanWasAdded(loan)
         delegateSelectionVC?.loanWasAdded(loan)
-        dismiss(animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.popViewController(animated: true)
     }
     
 }

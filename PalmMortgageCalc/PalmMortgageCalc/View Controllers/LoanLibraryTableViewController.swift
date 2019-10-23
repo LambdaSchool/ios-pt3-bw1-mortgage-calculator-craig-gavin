@@ -10,18 +10,25 @@ import UIKit
 
 class LoanLibraryTableViewController: UITableViewController {
 
-    let loanmodelcontroller = LoanModelController()
+    var loanmodelcontroller: LoanModelController?
     let loancontroller = LoanController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        tableView.reloadData()
     }
     
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let loanmodelcontroller = loanmodelcontroller else { return 0 }
         // #warning Incomplete implementation, return the number of rows
         return  loanmodelcontroller.loans.count
     }
@@ -29,7 +36,7 @@ class LoanLibraryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LoanCell", for: indexPath) as? LoanResultTableViewCell else { return UITableViewCell() }
 
-        let loan = loanmodelcontroller.loans[indexPath.row]
+        let loan = loanmodelcontroller!.loans[indexPath.row]
         cell.loan = loan
         
         return cell
@@ -69,8 +76,10 @@ class LoanLibraryTableViewController: UITableViewController {
 
 extension LoanLibraryTableViewController: AddLoanDelegate {
     func loanWasAdded(_ loan: Loan) {
-        loanmodelcontroller.loans.append(loan)
+        loanmodelcontroller?.loans.append(loan)
         tableView.reloadData()
+        
+        dismiss(animated: true, completion: nil)
     }
     
 }
