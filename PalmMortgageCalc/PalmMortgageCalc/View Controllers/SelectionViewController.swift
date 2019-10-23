@@ -33,7 +33,6 @@ class SelectionViewController: UIViewController {
             loanCalculatorVC.loanmodelcontroller = loanmodelcontroller
         case "ShowLibrarySegue":
             guard let loanLibraryVC = segue.destination as? LoanLibraryTableViewController else { fatalError() }
-            
             loanLibraryVC.loanmodelcontroller = loanmodelcontroller
         default:
             return
@@ -45,7 +44,6 @@ class SelectionViewController: UIViewController {
 extension SelectionViewController: SelectionVCDelegate {
     func loanWasAdded(_ loan: Loan) {
         loanmodelcontroller.loans.append(loan)
-        print(loanmodelcontroller.loans.count)
         
         dismiss(animated: true, completion: nil)
         
