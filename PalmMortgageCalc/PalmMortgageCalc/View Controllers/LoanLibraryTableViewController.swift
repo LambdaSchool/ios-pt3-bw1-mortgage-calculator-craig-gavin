@@ -16,7 +16,7 @@ class LoanLibraryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+      
 
     // MARK: - Table view data source
 
@@ -64,12 +64,12 @@ class LoanLibraryTableViewController: UITableViewController {
         case "ModifyLoanFromLibrarySegue":
                 guard let loanCalculatorVC = segue.destination as? LoanCalculatorViewController else { fatalError() }
                 loanCalculatorVC.delegate = self
+                loanCalculatorVC.loanmodelcontroller = loanmodelcontroller
         case "ShowLoanDetailSegue":
             guard let loanDetailVC = segue.destination as? LoanDetailViewController,
                 let loanmodelcontroller = loanmodelcontroller,
                 let indexPath = tableView.indexPathForSelectedRow else { fatalError() }
             loanDetailVC.loan = loanmodelcontroller.loans[indexPath.row]
-            print(loanmodelcontroller.loans[indexPath.row])
         default:
             return
         }

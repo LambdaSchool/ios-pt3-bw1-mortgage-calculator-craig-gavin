@@ -14,6 +14,7 @@ class LoanDetailViewController: UIViewController {
     
     // MARK: Outlets
     
+    @IBOutlet weak var loanNameDetails: UILabel!
     @IBOutlet weak var loanPrincipalLabel: UILabel!
     @IBOutlet weak var loanTermLabel: UILabel!
     @IBOutlet weak var loanInterestRateLabel: UILabel!
@@ -46,8 +47,12 @@ class LoanDetailViewController: UIViewController {
     private func updateViews() {
         guard let loan = loan,
                   isViewLoaded else { return }
-        loanTermLabel.text = String("\(loan.years)")
+        loanNameDetails.text = loan.type
         loanPrincipalLabel.text = currencyFormatter(loan.principal)
+        loanTermLabel.text = String("\(loan.years) years")
+        loanInterestRateLabel.text = String(format: "%.2f%%", loan.rate*100)
+        downPaymentLabel.text = currencyFormatter(loan.downPayment)
+        additionalPaymentLabel.text = currencyFormatter(loan.additionalPrincipal)
     }
     
 }
