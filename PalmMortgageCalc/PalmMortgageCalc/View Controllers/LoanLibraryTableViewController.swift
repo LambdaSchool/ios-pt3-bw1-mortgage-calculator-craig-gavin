@@ -18,18 +18,6 @@ class LoanLibraryTableViewController: UITableViewController {
 
     }
     
-    // Trying to get the scene to go from the Calculator to the Library; but when arriving at the Calculator via the start scene, it doesn't work.  Tried to implement an unwind segue but I can't seem to get that to work properly either.
-//    @IBAction func unwindToLoanLibraryVC(_ unwindSegue: UIStoryboardSegue) {}
-//    @IBAction func unwindFromLoanCalcVC(_ sender: UIStoryboardSegue) {
-//
-//        if sender.source is LoanCalculatorViewController {
-//            if let senderVC = sender.source as? LoanCalculatorViewController {
-//                guard let loan = senderVC.loan else { return }
-//                loanmodelcontroller.loans.append(loan)
-//            }
-//            tableView.reloadData()
-//        }
-//    }
 
     // MARK: - Table view data source
 
