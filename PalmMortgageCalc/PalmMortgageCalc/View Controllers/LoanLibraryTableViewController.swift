@@ -15,24 +15,7 @@ class LoanLibraryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
-
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        tableView.reloadData()
-    }
-    
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ShowLoanDetailSegue" {
-//            guard let indexPath = tableView.indexPathForSelectedRow,
-//            let loanLibraryVC = segue.destination as? LoanDetailViewController else { fatalError() }
-//
-//            loanLibraryVC.loa
-//        }
-//    }
     
 
     // MARK: - Table view data source
@@ -46,7 +29,8 @@ class LoanLibraryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "LoanCell", for: indexPath) as? LoanResultTableViewCell else { return UITableViewCell() }
 
-        let loan = loanmodelcontroller!.loans[indexPath.row]
+        guard let loanmodelcontroller = loanmodelcontroller else { return UITableViewCell() }
+        let loan = loanmodelcontroller.loans[indexPath.row]
         cell.loan = loan
         
         return cell
