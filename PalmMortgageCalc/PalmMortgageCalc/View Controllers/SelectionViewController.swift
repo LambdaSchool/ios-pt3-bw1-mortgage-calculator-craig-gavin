@@ -30,6 +30,7 @@ class SelectionViewController: UIViewController {
         case "ShowCalculatorSegue":
             guard let loanCalculatorVC = segue.destination as? LoanCalculatorViewController else { fatalError() }
             loanCalculatorVC.delegateSelectionVC = self
+            loanCalculatorVC.loanmodelcontroller = loanmodelcontroller
         case "ShowLibrarySegue":
             guard let loanLibraryVC = segue.destination as? LoanLibraryTableViewController else { fatalError() }
             

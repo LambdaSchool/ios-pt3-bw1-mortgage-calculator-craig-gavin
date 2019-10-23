@@ -183,6 +183,7 @@
                         <outlet property="additionalPaymentLabel" destination="AHV-gg-vDV" id="qMd-fh-2CB"/>
                         <outlet property="downPaymentLabel" destination="UbR-QR-rX8" id="KfD-uK-oD4"/>
                         <outlet property="loanInterestRateLabel" destination="93F-b0-B4t" id="1vn-el-n7q"/>
+                        <outlet property="loanNameDetails" destination="8cr-mM-8Dj" id="XQX-Ks-Ldc"/>
                         <outlet property="loanPrincipalLabel" destination="Xnh-0l-l3Q" id="01V-rh-ZCj"/>
                         <outlet property="loanTermLabel" destination="Yy1-2W-fog" id="2df-HQ-w1P"/>
                     </connections>
