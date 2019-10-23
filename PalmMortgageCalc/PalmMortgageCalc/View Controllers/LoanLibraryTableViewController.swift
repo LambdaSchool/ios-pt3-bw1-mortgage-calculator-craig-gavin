@@ -82,8 +82,10 @@ class LoanLibraryTableViewController: UITableViewController {
                 loanCalculatorVC.delegate = self
         case "ShowLoanDetailSegue":
             guard let loanDetailVC = segue.destination as? LoanDetailViewController,
-                let indexPath = tableView.indexPathForSelectedRow else {fatalError() }
-            loanDetailVC.loan = loanmodelcontroller!.loans[indexPath.row]
+                let loanmodelcontroller = loanmodelcontroller,
+                let indexPath = tableView.indexPathForSelectedRow else { fatalError() }
+            loanDetailVC.loan = loanmodelcontroller.loans[indexPath.row]
+            print(loanmodelcontroller.loans[indexPath.row])
         default:
             return
         }
