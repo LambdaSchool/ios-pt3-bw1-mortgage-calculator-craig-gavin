@@ -32,6 +32,12 @@ class LoanLibraryTableViewController: UITableViewController {
         guard let loanmodelcontroller = loanmodelcontroller else { return UITableViewCell() }
         let loan = loanmodelcontroller.loans[indexPath.row]
         cell.loan = loan
+        if (indexPath.row % 2) == 0 {
+            cell.backgroundColor = UIColor.lightGray
+        }
+        else{
+            cell.backgroundColor = UIColor.white
+        }
         
         return cell
     }

@@ -233,9 +233,6 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g., 300000" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qLK-Hu-Skh">
                                         <rect key="frame" x="0.0" y="70" width="374" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="ePA-RW-0AG"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
