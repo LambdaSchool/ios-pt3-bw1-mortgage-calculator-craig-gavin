@@ -27,7 +27,7 @@
                                         </state>
                                         <connections>
                                             <action selector="loanCalculatorButtonTapped:" destination="pyS-5m-SXX" eventType="touchUpInside" id="O3d-Y1-Tjh"/>
-                                            <segue destination="fdc-yG-qfW" kind="show" identifier="ShowCalculatorSegue" id="gsC-e2-AWA"/>
+                                            <segue destination="fdc-yG-qfW" kind="presentation" identifier="ShowCalculatorSegue" id="gsC-e2-AWA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brF-ZT-MN9">
@@ -378,6 +378,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ebs-Ws-OdA"/>
+        <segue reference="gsC-e2-AWA"/>
     </inferredMetricsTieBreakers>
 </document>

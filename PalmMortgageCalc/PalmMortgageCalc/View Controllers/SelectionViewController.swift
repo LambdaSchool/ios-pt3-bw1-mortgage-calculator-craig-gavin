@@ -30,9 +30,10 @@ class SelectionViewController: UIViewController {
         case "ShowCalculatorSegue":
             guard let loanCalculatorVC = segue.destination as? LoanCalculatorViewController else { fatalError() }
             loanCalculatorVC.delegateSelectionVC = self
-            performSegue(withIdentifier: "ShowLibrarySegue", sender: nil)
         case "ShowLibrarySegue":
             guard let loanLibraryVC = segue.destination as? LoanLibraryTableViewController else { fatalError() }
+            
+            loanLibraryVC.loanmodelcontroller = loanmodelcontroller
         default:
             return
         }
@@ -43,7 +44,11 @@ class SelectionViewController: UIViewController {
 extension SelectionViewController: SelectionVCDelegate {
     func loanWasAdded(_ loan: Loan) {
         loanmodelcontroller.loans.append(loan)
-//        performSegue(withIdentifier: "ShowLibrarySegue", sender: nil)
+        print(loanmodelcontroller.loans.count)
+        
+        dismiss(animated: true, completion: nil)
+        
+        performSegue(withIdentifier: "ShowLibrarySegue", sender: self)
 //        self.navigationController?.popViewController(animated: true)
         
         
