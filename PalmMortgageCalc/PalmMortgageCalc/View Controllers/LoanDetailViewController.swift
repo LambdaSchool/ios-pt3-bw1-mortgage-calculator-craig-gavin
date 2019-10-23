@@ -28,10 +28,6 @@ class LoanDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //loanController.loan = loanController
-//        updateViews()
-        // Do any additional setup after loading the view.
     }
     
     func currencyFormatter(_ number: Double) -> String {
@@ -47,7 +43,7 @@ class LoanDetailViewController: UIViewController {
     
     private func updateViews() {
         guard let loan = loan else { return } // not sure if this is right guard let
-        
+        loanTermLabel.text = String("\(loan.years)")
         loanPrincipalLabel.text = currencyFormatter(loan.principal)
     }
     
