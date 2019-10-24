@@ -10,7 +10,7 @@ import UIKit
 
 class LoanDetailViewController: UIViewController {
     
-    //var loanController: LoanController = LoanController()
+    var loanController: LoanController = LoanController()
     
     // MARK: Outlets
     
@@ -54,10 +54,14 @@ class LoanDetailViewController: UIViewController {
                   isViewLoaded else { return }
         loanNameDetails.text = String("\(loan.type) Details")
         loanPrincipalLabel.text = currencyFormatter(loan.principal)
+        loanStartingPrincipal.text = currencyFormatter(loan.principal - loan.downPayment)
         loanTermLabel.text = String("\(loan.years) years")
         loanInterestRateLabel.text = String(format: "%.2f%%", loan.rate*100)
         downPaymentLabel.text = currencyFormatter(loan.downPayment)
         additionalPaymentLabel.text = currencyFormatter(loan.additionalPrincipal)
+        loanMonthlyPaymentLabel.text = currencyFormatter(loanController.paymentAmount(loan))
+        loanTotalInterestLabel.text = currencyFormatter(loanController.lifeOfLoanAmounts(loan).totalInterest)
+        totalAmountPaidLabel.text = currencyFormatter(loan.principal + loanController.lifeOfLoanAmounts(loan).totalInterest)
     }
     
 }
