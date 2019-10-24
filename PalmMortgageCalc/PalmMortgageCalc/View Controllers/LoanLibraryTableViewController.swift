@@ -64,7 +64,17 @@ class LoanLibraryTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        loanmodelcontroller?.loans.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        save()
+    }
 
     // MARK: - Navigation
     
@@ -85,6 +95,8 @@ class LoanLibraryTableViewController: UITableViewController {
         }
     }
 }
+
+
 
 // The delegate takes a loan from the calculator and appends it to the loans array.  It then reloads the table view and dismisses the calculator
 extension LoanLibraryTableViewController: AddLoanDelegate {
