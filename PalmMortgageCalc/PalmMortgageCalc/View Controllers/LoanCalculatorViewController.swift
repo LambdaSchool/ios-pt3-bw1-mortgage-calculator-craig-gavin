@@ -15,7 +15,7 @@ protocol SelectionVCDelegate {
     func loanWasAdded(_ loan: Loan)
 }
 
-class LoanCalculatorViewController: UIViewController {
+class LoanCalculatorViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
     var delegate: AddLoanDelegate?
@@ -36,8 +36,10 @@ class LoanCalculatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
     }
+    
     
     // MARK: Actions
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
@@ -64,30 +66,4 @@ class LoanCalculatorViewController: UIViewController {
         delegateSelectionVC?.loanWasAdded(loan)
 
     }
-    
 }
-
-// This jumps from text field to text field when the user taps the Enter key.
-extension LoanCalculatorViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let text = textField.text,
-            !text.isEmpty {
-            switch textField {
-            case loanTypeTextField:
-                loanPrincipalTextField.becomeFirstResponder()
-            case loanPrincipalTextField:
-                loanTermTextField.becomeFirstResponder()
-            case loanTermTextField:
-                loanInterestRateTextField.becomeFirstResponder()
-            case loanInterestRateTextField:
-                loanDownPaymentTextField.becomeFirstResponder()
-            case loanDownPaymentTextField:
-                loanAdditionalPaymentTextField.becomeFirstResponder()
-            default:
-                textField.resignFirstResponder()
-            }
-        }
-        return false
-    }
-}
-
