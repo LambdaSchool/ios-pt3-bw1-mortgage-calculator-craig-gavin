@@ -24,6 +24,8 @@ class LoanLibraryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.reloadData()
+        
         guard let loanmodelcontroller = loanmodelcontroller else { return }
         if let data = try? Data(contentsOf: persistentStoreURL),
             let savedLoans = try? PropertyListDecoder().decode([Loan].self, from: data) {
@@ -65,6 +67,7 @@ class LoanLibraryTableViewController: UITableViewController {
         return cell
     }
     
+    // The following two methods implement the swipe to delete ability in the table view
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }

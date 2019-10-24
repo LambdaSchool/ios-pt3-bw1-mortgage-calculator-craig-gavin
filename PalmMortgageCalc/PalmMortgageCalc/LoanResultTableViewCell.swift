@@ -21,7 +21,9 @@ class LoanResultTableViewCell: UITableViewCell {
     
     // MARK: Outlets
     @IBOutlet weak var loanTypeLabel: UILabel!
-    @IBOutlet weak var totalInterestPaid: UILabel!
+    @IBOutlet weak var totalInterestPaidLabel: UILabel!
+    @IBOutlet weak var initialPriceLabel: UILabel!
+    @IBOutlet weak var totalAmountPaidLabel: UILabel!
     
 
     // MARK: Methods
@@ -41,9 +43,17 @@ class LoanResultTableViewCell: UITableViewCell {
         guard let loan = loan
             else { return }
         let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
+        let initialPrincipal = loan.principal
+        let totalPaid = initialPrincipal + totalInterest
+        
         let formattedInterest = currencyFormatter(totalInterest)
+        let formattedPrincipal = currencyFormatter(initialPrincipal)
+        let formattedTotalPaid = currencyFormatter(totalPaid)
+        
         loanTypeLabel.text = loan.type
-        totalInterestPaid.text = "Total Interest Paid:  \(formattedInterest)"
+        totalInterestPaidLabel.text = "Total Interest:  \(formattedInterest)"
+        initialPriceLabel.text = "Initial Price:  \(formattedPrincipal)"
+        totalAmountPaidLabel.text = "Total Amount Paid:  \(formattedTotalPaid)"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
