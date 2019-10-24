@@ -19,12 +19,13 @@ class SelectionViewController: UIViewController {
     }
     
     // MARK: Actions
+    // The buttons are linked to their respective view controllers via segues.
     @IBAction func loanCalculatorButtonTapped(_ sender: UIButton) {
-
     }
     @IBAction func loanLibraryButtonTapped(_ sender: UIButton) {
     }
     
+    // The prepare for segue passes the loanmodelcontroller to both views and also declares itself a delegate for the calculator view controller.
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "ShowCalculatorSegue":
@@ -41,6 +42,7 @@ class SelectionViewController: UIViewController {
 
 }
 
+// The SelectionVCDelegate takes a loan created in the calculator and appends it to the loans array and then immediately segues to the loan library
 extension SelectionViewController: SelectionVCDelegate {
     func loanWasAdded(_ loan: Loan) {
         loanmodelcontroller.loans.append(loan)
@@ -48,10 +50,6 @@ extension SelectionViewController: SelectionVCDelegate {
         dismiss(animated: true, completion: nil)
         
         performSegue(withIdentifier: "ShowLibrarySegue", sender: self)
-//        self.navigationController?.popViewController(animated: true)
-        
-        
-//        tableView.reloadData()
     }
     
 }
