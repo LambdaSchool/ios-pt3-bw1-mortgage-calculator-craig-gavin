@@ -33,6 +33,7 @@ class LoanDetailViewController: UIViewController {
         updateViews()
     }
     
+    // The following method is called for the loan values that are in currency format
     func currencyFormatter(_ number: Double) -> String {
        let formatter = NumberFormatter()
            formatter.usesGroupingSeparator = true
@@ -43,7 +44,7 @@ class LoanDetailViewController: UIViewController {
        return formattedCurrencyString
        }
 
-    
+    // updateViews() sets the value of each label to the appropriate value of the loan.
     private func updateViews() {
         guard let loan = loan,
                   isViewLoaded else { return }

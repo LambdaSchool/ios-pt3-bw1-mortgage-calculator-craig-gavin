@@ -32,6 +32,8 @@ class LoanLibraryTableViewController: UITableViewController {
         guard let loanmodelcontroller = loanmodelcontroller else { return UITableViewCell() }
         let loan = loanmodelcontroller.loans[indexPath.row]
         cell.loan = loan
+        
+        // The following block alternates the colors of the cells in the table view
         if (indexPath.row % 2) == 0 {
             cell.backgroundColor = UIColor.lightGray
         }
@@ -42,29 +44,10 @@ class LoanLibraryTableViewController: UITableViewController {
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
 
     // MARK: - Navigation
     
+    // The prepare for segue passes the loanmodelcontroller to both view controllers and declares itself a delegate for the loan library view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "ModifyLoanFromLibrarySegue":
@@ -82,6 +65,7 @@ class LoanLibraryTableViewController: UITableViewController {
     }
 }
 
+// The delegate takes a loan from the calculator and appends it to the loans array.  It then reloads the table view and dismisses the calculator
 extension LoanLibraryTableViewController: AddLoanDelegate {
     func loanWasAdded(_ loan: Loan) {
         loanmodelcontroller?.loans.append(loan)
