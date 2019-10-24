@@ -53,7 +53,7 @@ class LoanResultTableViewCell: UITableViewCell {
         loanTypeLabel.text = loan.type
         totalInterestPaidLabel.text = "Total Interest:  \(formattedInterest)"
         initialPriceLabel.text = "Initial Price:  \(formattedPrincipal)"
-        totalAmountPaidLabel.text = "Total Amount Paid:  \(formattedTotalPaid)"
+        totalAmountPaidLabel.text = "Total Paid:  \(formattedTotalPaid)"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
