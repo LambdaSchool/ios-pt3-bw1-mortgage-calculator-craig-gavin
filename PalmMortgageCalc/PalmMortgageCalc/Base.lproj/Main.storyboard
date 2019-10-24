@@ -300,7 +300,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 200" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZUo-o9-Kf6">
-                                <rect key="frame" x="312" y="360" width="81.5" height="34"/>
+                                <rect key="frame" x="312.5" y="360" width="81.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
@@ -321,6 +321,12 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All fields are required. No commas or symbols." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60r-E5-dLC">
+                                <rect key="frame" x="20" y="444" width="374" height="17"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g., 300000" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qLK-Hu-Skh">
                                 <rect key="frame" x="282" y="192" width="112" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -332,6 +338,7 @@
                             <constraint firstItem="TgX-Qw-Xa3" firstAttribute="top" secondItem="1Jg-W1-8zB" secondAttribute="bottom" constant="25" id="0co-q7-w3M"/>
                             <constraint firstItem="fZV-PI-FcG" firstAttribute="centerY" secondItem="jU7-9j-9wJ" secondAttribute="centerY" id="2Df-8m-C0m"/>
                             <constraint firstItem="T5f-qV-Fvk" firstAttribute="leading" secondItem="Olq-l0-cF0" secondAttribute="leading" constant="20" id="5je-SV-BuV"/>
+                            <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="60r-E5-dLC" secondAttribute="trailing" constant="20" id="7WH-Gn-111"/>
                             <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="4E0-j9-9xZ" secondAttribute="trailing" constant="20" id="9q7-8B-s9h"/>
                             <constraint firstItem="wEc-oj-BZ0" firstAttribute="top" secondItem="jU7-9j-9wJ" secondAttribute="bottom" constant="25" id="A7u-Xc-Zg1"/>
                             <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="eH3-o1-IpO" secondAttribute="trailing" constant="20" id="G9r-7K-T3g"/>
@@ -353,6 +360,8 @@
                             <constraint firstItem="4E0-j9-9xZ" firstAttribute="top" secondItem="eH3-o1-IpO" secondAttribute="bottom" constant="27" id="icP-CG-9wr"/>
                             <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="qLK-Hu-Skh" secondAttribute="trailing" constant="20" id="muh-KN-g5E"/>
                             <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="fZV-PI-FcG" secondAttribute="trailing" constant="20" id="oDX-T2-rco"/>
+                            <constraint firstItem="60r-E5-dLC" firstAttribute="top" secondItem="wEc-oj-BZ0" secondAttribute="bottom" constant="58.5" id="pmq-DB-9Om"/>
+                            <constraint firstItem="60r-E5-dLC" firstAttribute="leading" secondItem="Olq-l0-cF0" secondAttribute="leading" constant="20" id="q2p-8j-UWc"/>
                             <constraint firstItem="T5f-qV-Fvk" firstAttribute="top" secondItem="4E0-j9-9xZ" secondAttribute="bottom" constant="25" id="reb-EP-icW"/>
                             <constraint firstItem="4w2-wg-tUy" firstAttribute="centerY" secondItem="TgX-Qw-Xa3" secondAttribute="centerY" id="zZ9-NK-cmf"/>
                         </constraints>
