@@ -63,38 +63,73 @@
         <!--Loan Library-->
         <scene sceneID="QN0-Km-N3C">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rwp-AZ-PbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="p51-JM-lXB" customClass="LoanLibraryTableViewController" customModule="PalmMortgageCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pbb-FT-iai">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoanCell" textLabel="k19-QD-KWR" detailTextLabel="rj9-AT-MEM" style="IBUITableViewCellStyleSubtitle" id="bTV-tq-3EI" customClass="LoanResultTableViewCell" customModule="PalmMortgageCalc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoanCell" id="bTV-tq-3EI" customClass="LoanResultTableViewCell" customModule="PalmMortgageCalc" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bTV-tq-3EI" id="0xU-A8-cM3">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Loan Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k19-QD-KWR">
-                                            <rect key="frame" x="20" y="10" width="79" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Total Interest Paid:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rj9-AT-MEM">
-                                            <rect key="frame" x="20" y="31.5" width="105.5" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-2T-QqM">
+                                            <rect key="frame" x="30" y="4" width="130" height="36"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-sI-RqD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2j-JD-B20">
+                                                    <rect key="frame" x="0.0" y="21.5" width="130" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="130" id="RNh-SD-hov"/>
+                                            </constraints>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="V5L-dk-wnQ">
+                                            <rect key="frame" x="253.5" y="4.5" width="130.5" height="35"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gft-vp-bEA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="130.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTN-9I-3Ww">
+                                                    <rect key="frame" x="0.0" y="20.5" width="130.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="130.5" id="JE0-Lf-wTB"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="V5L-dk-wnQ" secondAttribute="trailing" constant="10" id="IOD-1N-YtC"/>
+                                        <constraint firstItem="z1s-2T-QqM" firstAttribute="leading" secondItem="0xU-A8-cM3" secondAttribute="leadingMargin" constant="10" id="cqi-ye-zpR"/>
+                                        <constraint firstItem="V5L-dk-wnQ" firstAttribute="centerY" secondItem="0xU-A8-cM3" secondAttribute="centerY" id="sO5-bo-GfJ"/>
+                                        <constraint firstItem="z1s-2T-QqM" firstAttribute="centerY" secondItem="0xU-A8-cM3" secondAttribute="centerY" id="u3R-Hp-i8A"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="loanTypeLabel" destination="k19-QD-KWR" id="YtU-cc-qM3"/>
-                                    <outlet property="totalInterestPaid" destination="rj9-AT-MEM" id="u3i-va-NYq"/>
+                                    <outlet property="initialPriceLabel" destination="gft-vp-bEA" id="A9M-fk-W82"/>
+                                    <outlet property="loanTypeLabel" destination="1Uo-sI-RqD" id="gDq-ER-go6"/>
+                                    <outlet property="totalAmountPaidLabel" destination="LTN-9I-3Ww" id="d3e-VK-aFZ"/>
+                                    <outlet property="totalInterestPaidLabel" destination="k2j-JD-B20" id="Frc-Ob-buw"/>
                                     <segue destination="dyx-Tx-g0d" kind="show" identifier="ShowLoanDetailSegue" id="LfH-8v-3kW"/>
                                 </connections>
                             </tableViewCell>
@@ -116,7 +151,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rwp-AZ-PbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="497" y="455"/>
         </scene>
