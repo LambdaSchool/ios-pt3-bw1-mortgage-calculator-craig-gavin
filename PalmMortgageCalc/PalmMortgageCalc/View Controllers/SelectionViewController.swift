@@ -18,6 +18,13 @@ class SelectionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func save() {
+        guard let loanLibrary = LoanLibraryTableViewController() as? LoanLibraryTableViewController else { return }
+        if let data = try? PropertyListEncoder().encode(loanmodelcontroller.loans) {
+            try? data.write(to: loanLibrary.persistentStoreURL)
+        }
+    }
+    
     // MARK: Actions
     // The buttons are linked to their respective view controllers via segues.
     @IBAction func loanCalculatorButtonTapped(_ sender: UIButton) {
@@ -46,9 +53,8 @@ class SelectionViewController: UIViewController {
 extension SelectionViewController: SelectionVCDelegate {
     func loanWasAdded(_ loan: Loan) {
         loanmodelcontroller.loans.append(loan)
-        
         dismiss(animated: true, completion: nil)
-        
+        save()
         performSegue(withIdentifier: "ShowLibrarySegue", sender: self)
     }
     

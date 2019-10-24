@@ -13,8 +13,29 @@ class LoanLibraryTableViewController: UITableViewController {
     var loanmodelcontroller: LoanModelController?
     let loancontroller = LoanController()
     
+    var persistentStoreURL: URL! {
+        if let documentURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+            let persistentStoreURL = documentURL.appendingPathComponent("palmMortgage.plist")
+            return persistentStoreURL
+        }
+        return nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let loanmodelcontroller = loanmodelcontroller else { return }
+        if let data = try? Data(contentsOf: persistentStoreURL),
+            let savedLoans = try? PropertyListDecoder().decode([Loan].self, from: data) {
+            loanmodelcontroller.loans = savedLoans
+        }
+    }
+    
+    func save () {
+        guard let loanmodelcontroller = loanmodelcontroller else { return }
+        if let data = try? PropertyListEncoder().encode(loanmodelcontroller.loans) {
+            try? data.write(to: persistentStoreURL)
+        }
     }
       
 
@@ -70,8 +91,9 @@ extension LoanLibraryTableViewController: AddLoanDelegate {
     func loanWasAdded(_ loan: Loan) {
         loanmodelcontroller?.loans.append(loan)
         tableView.reloadData()
-        
         dismiss(animated: true, completion: nil)
+        
+        save()
     }
     
 }
