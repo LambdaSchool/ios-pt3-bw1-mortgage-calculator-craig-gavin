@@ -16,10 +16,14 @@ class LoanDetailViewController: UIViewController {
     
     @IBOutlet weak var loanNameDetails: UILabel!
     @IBOutlet weak var loanPrincipalLabel: UILabel!
+    @IBOutlet weak var downPaymentLabel: UILabel!
+    @IBOutlet weak var loanStartingPrincipal: UILabel!
     @IBOutlet weak var loanTermLabel: UILabel!
     @IBOutlet weak var loanInterestRateLabel: UILabel!
-    @IBOutlet weak var downPaymentLabel: UILabel!
     @IBOutlet weak var additionalPaymentLabel: UILabel!
+    @IBOutlet weak var loanMonthlyPaymentLabel: UILabel!
+    @IBOutlet weak var loanTotalInterestLabel: UILabel!
+    @IBOutlet weak var totalAmountPaidLabel: UILabel!
     
     var loan: Loan? {
         didSet {
@@ -48,7 +52,7 @@ class LoanDetailViewController: UIViewController {
     private func updateViews() {
         guard let loan = loan,
                   isViewLoaded else { return }
-        loanNameDetails.text = loan.type
+        loanNameDetails.text = String("\(loan.type) Details")
         loanPrincipalLabel.text = currencyFormatter(loan.principal)
         loanTermLabel.text = String("\(loan.years) years")
         loanInterestRateLabel.text = String(format: "%.2f%%", loan.rate*100)
