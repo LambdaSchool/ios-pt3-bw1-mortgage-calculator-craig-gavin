@@ -37,23 +37,154 @@ class LoanResultTableViewCell: UITableViewCell {
         guard let formattedCurrencyString = formatter.string(from: newNumber) else { fatalError("Error converting number to string") }
         return formattedCurrencyString
     }
+    
+    
+    func lowerLeftLabelSetter() -> String {
+        guard let loan = loan else { return "" }
+        //         let lowerLeftLabelKey = UserDefaults.standard.????(forKey: .lowerLeft)
+        let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
+        let initialPrincipal = loan.principal
+        let totalPaid = initialPrincipal + totalInterest
+        let additionalPayment = loan.additionalPrincipal
+        let downPayment = loan.downPayment
+        let loanTerm = loan.years
+        let interestRate = loan.rate * 100
+        let monthlyPayment = loancontroller.paymentAmount(loan)
+        
+        switch lowerLeftLabelKey {
+        case "totalInterest":
+            let formattedPrincipal = currencyFormatter(totalInterest)
+            return "Total Interest: \(formattedPrincipal)"
+        case "initialPrincipal":
+            let formattedPrincipal = currencyFormatter(initialPrincipal)
+            return "Initial Price:  \(formattedPrincipal)"
+        case "totalPaid":
+            let formattedTotalPaid = currencyFormatter(totalPaid)
+            return "Total Paid:  \(formattedTotalPaid)"
+        case "additionalPayment":
+            let formattedAdditionalPayment = currencyFormatter(additionalPayment)
+            return "Additional Payment:  \(formattedAdditionalPayment)"
+        case "downPayment":
+            let formattedDownPayment = currencyFormatter(downPayment)
+            return "Down Payment:  \(formattedDownPayment)"
+        case "loanTerm":
+            return "Loan Length:  \(loanTerm) yrs"
+        case "interestRate":
+            return String(format: "%.2f%%", interestRate)
+        case "monthlyPayment":
+            let formattedMonthlyPayment = currencyFormatter(monthlyPayment)
+            return "Monthly Payment:  \(formattedMonthlyPayment)"
+        default:
+            return ("No lower left label key found")
+        }
+    }
+    
+   func upperRightLabelSetter() -> String {
+          guard let loan = loan else { return "" }
+          //         let upperRightLabelKey = UserDefaults.standard.????(forKey: .upperRight)
+          let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
+          let initialPrincipal = loan.principal
+          let totalPaid = initialPrincipal + totalInterest
+          let additionalPayment = loan.additionalPrincipal
+          let downPayment = loan.downPayment
+          let loanTerm = loan.years
+          let interestRate = loan.rate * 100
+          let monthlyPayment = loancontroller.paymentAmount(loan)
+          
+          switch upperRightLabelKey {
+          case "totalInterest":
+              let formattedPrincipal = currencyFormatter(totalInterest)
+              return "Total Interest: \(formattedPrincipal)"
+          case "initialPrincipal":
+              let formattedPrincipal = currencyFormatter(initialPrincipal)
+              return "Initial Price:  \(formattedPrincipal)"
+          case "totalPaid":
+              let formattedTotalPaid = currencyFormatter(totalPaid)
+              return "Total Paid:  \(formattedTotalPaid)"
+          case "additionalPayment":
+              let formattedAdditionalPayment = currencyFormatter(additionalPayment)
+              return "Additional Payment:  \(formattedAdditionalPayment)"
+          case "downPayment":
+              let formattedDownPayment = currencyFormatter(downPayment)
+              return "Down Payment:  \(formattedDownPayment)"
+          case "loanTerm":
+              return "Loan Length:  \(loanTerm) yrs"
+          case "interestRate":
+              return String(format: "%.2f%%", interestRate)
+          case "monthlyPayment":
+              let formattedMonthlyPayment = currencyFormatter(monthlyPayment)
+              return "Monthly Payment:  \(formattedMonthlyPayment)"
+            default:
+                return ("No upper right label key found")
+          }
+      }
+    
+    func lowerRightLabelSetter() -> String {
+           guard let loan = loan else { return "" }
+           //         let lowerRightLabelKey = UserDefaults.standard.????(forKey: .lowerRight)
+           let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
+           let initialPrincipal = loan.principal
+           let totalPaid = initialPrincipal + totalInterest
+           let additionalPayment = loan.additionalPrincipal
+           let downPayment = loan.downPayment
+           let loanTerm = loan.years
+           let interestRate = loan.rate * 100
+           let monthlyPayment = loancontroller.paymentAmount(loan)
+           
+           switch lowerRightLabelKey {
+           case "totalInterest":
+               let formattedPrincipal = currencyFormatter(totalInterest)
+               return "Total Interest: \(formattedPrincipal)"
+           case "initialPrincipal":
+               let formattedPrincipal = currencyFormatter(initialPrincipal)
+               return "Initial Price:  \(formattedPrincipal)"
+           case "totalPaid":
+               let formattedTotalPaid = currencyFormatter(totalPaid)
+               return "Total Paid:  \(formattedTotalPaid)"
+           case "additionalPayment":
+               let formattedAdditionalPayment = currencyFormatter(additionalPayment)
+               return "Additional Payment:  \(formattedAdditionalPayment)"
+           case "downPayment":
+               let formattedDownPayment = currencyFormatter(downPayment)
+               return "Down Payment:  \(formattedDownPayment)"
+           case "loanTerm":
+               return "Loan Length:  \(loanTerm) yrs"
+           case "interestRate":
+               return String(format: "%.2f%%", interestRate)
+           case "monthlyPayment":
+               let formattedMonthlyPayment = currencyFormatter(monthlyPayment)
+               return "Monthly Payment:  \(formattedMonthlyPayment)"
+            default:
+                return ("No lower right label key found")
+           }
+       }
 
     
     private func updateViews() {
         guard let loan = loan
             else { return }
-        let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
-        let initialPrincipal = loan.principal
-        let totalPaid = initialPrincipal + totalInterest
+//        let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
+//        let initialPrincipal = loan.principal
+//        let totalPaid = initialPrincipal + totalInterest
+//
+//        let formattedInterest = currencyFormatter(totalInterest)
+//        let formattedPrincipal = currencyFormatter(initialPrincipal)
+//        let formattedTotalPaid = currencyFormatter(totalPaid)
+//
+//        loanTypeLabel.text = loan.type
+//        totalInterestPaidLabel.text = "Total Interest:  \(formattedInterest)"
+//        initialPriceLabel.text = "Initial Price:  \(formattedPrincipal)"
+//        totalAmountPaidLabel.text = "Total Paid:  \(formattedTotalPaid)"
         
-        let formattedInterest = currencyFormatter(totalInterest)
-        let formattedPrincipal = currencyFormatter(initialPrincipal)
-        let formattedTotalPaid = currencyFormatter(totalPaid)
-        
+        // new code starts here
         loanTypeLabel.text = loan.type
-        totalInterestPaidLabel.text = "Total Interest:  \(formattedInterest)"
-        initialPriceLabel.text = "Initial Price:  \(formattedPrincipal)"
-        totalAmountPaidLabel.text = "Total Paid:  \(formattedTotalPaid)"
+        totalInterestPaidLabel.text = lowerLeftLabelSetter()
+        totalInterestPaidLabel.text = upperRightLabelSetter()
+        totalAmountPaidLabel.text = lowerRightLabelSetter()
+        
+        
+        
+        // new code ends here
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
