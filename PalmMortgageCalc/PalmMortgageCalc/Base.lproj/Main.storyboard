@@ -82,13 +82,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-2T-QqM">
                                                     <rect key="frame" x="0.0" y="0.0" width="195" height="36"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-sI-RqD">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-sI-RqD">
                                                             <rect key="frame" x="0.0" y="0.0" width="195" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2j-JD-B20">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2j-JD-B20">
                                                             <rect key="frame" x="0.0" y="21.5" width="195" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                             <nil key="textColor"/>
@@ -693,6 +693,6 @@
         <image name="chevron.right" catalog="system" width="48" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gsC-e2-AWA"/>
+        <segue reference="Ebs-Ws-OdA"/>
     </inferredMetricsTieBreakers>
 </document>
