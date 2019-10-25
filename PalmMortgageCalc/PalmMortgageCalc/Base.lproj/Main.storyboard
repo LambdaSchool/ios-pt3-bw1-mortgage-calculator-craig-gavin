@@ -152,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="497" y="455"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="twi-we-by1">
             <objects>
-                <viewController id="a52-IW-o1o" sceneMemberID="viewController">
+                <viewController id="a52-IW-o1o" customClass="SettingsViewController" customModule="PalmMortgageCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Sl-dv-nZ8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -205,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="495.6521739130435" y="1106.9196428571429"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings Cell Data View Controller-->
         <scene sceneID="IYb-K9-lHu">
             <objects>
-                <viewController id="aFK-qL-6Q2" sceneMemberID="viewController">
+                <viewController id="aFK-qL-6Q2" customClass="SettingsCellDataViewController" customModule="PalmMortgageCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xcS-I9-F2h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,36 +217,57 @@
                                 <rect key="frame" x="148" y="379" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Starting Principal"/>
+                                <connections>
+                                    <action selector="setSelectDataToPrincipal" destination="aFK-qL-6Q2" eventType="touchUpInside" id="X5m-Wi-6go"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5N3-Kd-duJ">
                                 <rect key="frame" x="146" y="417" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Total Interest Paid"/>
+                                <connections>
+                                    <action selector="setSelectDataToTotalInterest" destination="aFK-qL-6Q2" eventType="touchUpInside" id="nBg-mN-czM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjx-hg-THx">
                                 <rect key="frame" x="114" y="189" width="192" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Additional Monthly Payment"/>
+                                <connections>
+                                    <action selector="setSelectDataToAdditionalPayment" destination="aFK-qL-6Q2" eventType="touchUpInside" id="aHO-M4-Alu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guD-lM-BVZ">
                                 <rect key="frame" x="158" y="227" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Down Payment"/>
+                                <connections>
+                                    <action selector="setSelectDataToDownPayment" destination="aFK-qL-6Q2" eventType="touchUpInside" id="xxb-Oo-O8g"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECR-Oy-VtU">
                                 <rect key="frame" x="148" y="265" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Interest Rate"/>
+                                <connections>
+                                    <action selector="setSelectDataToInterestRate" destination="aFK-qL-6Q2" eventType="touchUpInside" id="Yyc-s0-qOo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkc-Hp-bMF">
                                 <rect key="frame" x="168" y="303" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Loan Length"/>
+                                <connections>
+                                    <action selector="setSelectDataToLoanTerm" destination="aFK-qL-6Q2" eventType="touchUpInside" id="zZ1-bE-GaM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag8-1p-4bH">
                                 <rect key="frame" x="148" y="341" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Monthly Payment"/>
+                                <connections>
+                                    <action selector="setSelectDataToMonthlyPayment" destination="aFK-qL-6Q2" eventType="touchUpInside" id="upj-th-Eq9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select an Item to Show" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6D-5b-mEI">
                                 <rect key="frame" x="20" y="114" width="374" height="41"/>
@@ -259,6 +280,9 @@
                                 <rect key="frame" x="148" y="455" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Total Loan Cost"/>
+                                <connections>
+                                    <action selector="setSelectDataToTotalCost" destination="aFK-qL-6Q2" eventType="touchUpInside" id="yYg-JR-679"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93708926439999995" green="0.97627633810000003" blue="0.99607461689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
