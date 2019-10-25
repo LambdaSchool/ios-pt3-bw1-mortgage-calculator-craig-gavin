@@ -402,7 +402,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g., 30" textAlignment="right" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="4HY-Be-5cb">
-                                <rect key="frame" x="316.5" y="234" width="77.5" height="34"/>
+                                <rect key="frame" x="274" y="234" width="120" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="wAl-q6-Kly"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
@@ -413,7 +416,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g., 3.75" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4w2-wg-tUy">
-                                <rect key="frame" x="305.5" y="276" width="88.5" height="34"/>
+                                <rect key="frame" x="274" y="276" width="120" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="4lM-CD-WY7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
@@ -424,7 +430,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g., 3000" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fZV-PI-FcG">
-                                <rect key="frame" x="299.5" y="318" width="94.5" height="34"/>
+                                <rect key="frame" x="274" y="318" width="120" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="0aU-LQ-uqs"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
@@ -434,11 +443,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 200" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZUo-o9-Kf6">
-                                <rect key="frame" x="312.5" y="360" width="81.5" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Gh-Fc-QK6">
                                 <rect key="frame" x="0.0" y="764" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -463,7 +467,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g., 300000" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qLK-Hu-Skh">
-                                <rect key="frame" x="282" y="192" width="112" height="34"/>
+                                <rect key="frame" x="274" y="192" width="120" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="M1r-yG-Lfn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 200" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZUo-o9-Kf6">
+                                <rect key="frame" x="274" y="360" width="120" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="fC3-hK-NTg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
@@ -474,30 +489,30 @@
                             <constraint firstItem="fZV-PI-FcG" firstAttribute="centerY" secondItem="jU7-9j-9wJ" secondAttribute="centerY" id="2Df-8m-C0m"/>
                             <constraint firstItem="T5f-qV-Fvk" firstAttribute="leading" secondItem="Olq-l0-cF0" secondAttribute="leading" constant="20" id="5je-SV-BuV"/>
                             <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="60r-E5-dLC" secondAttribute="trailing" constant="20" id="7WH-Gn-111"/>
+                            <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="4w2-wg-tUy" secondAttribute="trailing" constant="20" id="8aj-kb-Qzb"/>
                             <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="4E0-j9-9xZ" secondAttribute="trailing" constant="20" id="9q7-8B-s9h"/>
                             <constraint firstItem="wEc-oj-BZ0" firstAttribute="top" secondItem="jU7-9j-9wJ" secondAttribute="bottom" constant="25" id="A7u-Xc-Zg1"/>
+                            <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="ZUo-o9-Kf6" secondAttribute="trailing" constant="20" id="FXC-Y0-Tco"/>
                             <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="eH3-o1-IpO" secondAttribute="trailing" constant="20" id="G9r-7K-T3g"/>
                             <constraint firstItem="jU7-9j-9wJ" firstAttribute="leading" secondItem="Olq-l0-cF0" secondAttribute="leading" constant="20" id="HDZ-lD-Wwu"/>
                             <constraint firstItem="wEc-oj-BZ0" firstAttribute="leading" secondItem="Olq-l0-cF0" secondAttribute="leading" constant="20" id="HQP-uR-yLC"/>
                             <constraint firstItem="ZUo-o9-Kf6" firstAttribute="centerY" secondItem="wEc-oj-BZ0" secondAttribute="centerY" id="Khc-is-4rl"/>
-                            <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="4HY-Be-5cb" secondAttribute="trailing" constant="20" id="OKF-vv-OTb"/>
+                            <constraint firstAttribute="trailing" secondItem="4HY-Be-5cb" secondAttribute="trailing" constant="20" id="KoQ-h1-kcO"/>
                             <constraint firstItem="qLK-Hu-Skh" firstAttribute="centerY" secondItem="T5f-qV-Fvk" secondAttribute="centerY" id="Odr-j8-PI8"/>
                             <constraint firstItem="TgX-Qw-Xa3" firstAttribute="leading" secondItem="Olq-l0-cF0" secondAttribute="leading" constant="20" id="Qkn-Ck-2Bp"/>
                             <constraint firstItem="1Jg-W1-8zB" firstAttribute="top" secondItem="T5f-qV-Fvk" secondAttribute="bottom" constant="25" id="Tyu-o8-dQf"/>
                             <constraint firstItem="eH3-o1-IpO" firstAttribute="top" secondItem="Olq-l0-cF0" secondAttribute="top" constant="20" id="Xm7-ne-JXd"/>
-                            <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="4w2-wg-tUy" secondAttribute="trailing" constant="20" id="ZT6-SQ-XE6"/>
                             <constraint firstItem="jU7-9j-9wJ" firstAttribute="top" secondItem="TgX-Qw-Xa3" secondAttribute="bottom" constant="25" id="cra-nY-xq0"/>
                             <constraint firstItem="4HY-Be-5cb" firstAttribute="centerY" secondItem="1Jg-W1-8zB" secondAttribute="centerY" id="dzQ-8y-agp"/>
                             <constraint firstItem="1Jg-W1-8zB" firstAttribute="leading" secondItem="Olq-l0-cF0" secondAttribute="leading" constant="20" id="eKG-95-9W6"/>
                             <constraint firstItem="eH3-o1-IpO" firstAttribute="leading" secondItem="Olq-l0-cF0" secondAttribute="leading" constant="20" id="f9y-HC-YOd"/>
                             <constraint firstItem="4E0-j9-9xZ" firstAttribute="leading" secondItem="Olq-l0-cF0" secondAttribute="leading" constant="20" id="g7u-lY-Bgl"/>
-                            <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="ZUo-o9-Kf6" secondAttribute="trailing" constant="20" id="hyS-sW-LRi"/>
                             <constraint firstItem="4E0-j9-9xZ" firstAttribute="top" secondItem="eH3-o1-IpO" secondAttribute="bottom" constant="27" id="icP-CG-9wr"/>
-                            <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="qLK-Hu-Skh" secondAttribute="trailing" constant="20" id="muh-KN-g5E"/>
-                            <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="fZV-PI-FcG" secondAttribute="trailing" constant="20" id="oDX-T2-rco"/>
                             <constraint firstItem="60r-E5-dLC" firstAttribute="top" secondItem="wEc-oj-BZ0" secondAttribute="bottom" constant="58.5" id="pmq-DB-9Om"/>
                             <constraint firstItem="60r-E5-dLC" firstAttribute="leading" secondItem="Olq-l0-cF0" secondAttribute="leading" constant="20" id="q2p-8j-UWc"/>
+                            <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="fZV-PI-FcG" secondAttribute="trailing" constant="20" id="qmO-fa-enz"/>
                             <constraint firstItem="T5f-qV-Fvk" firstAttribute="top" secondItem="4E0-j9-9xZ" secondAttribute="bottom" constant="25" id="reb-EP-icW"/>
+                            <constraint firstItem="Olq-l0-cF0" firstAttribute="trailing" secondItem="qLK-Hu-Skh" secondAttribute="trailing" constant="20" id="vXp-Pt-DtR"/>
                             <constraint firstItem="4w2-wg-tUy" firstAttribute="centerY" secondItem="TgX-Qw-Xa3" secondAttribute="centerY" id="zZ9-NK-cmf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Olq-l0-cF0"/>
