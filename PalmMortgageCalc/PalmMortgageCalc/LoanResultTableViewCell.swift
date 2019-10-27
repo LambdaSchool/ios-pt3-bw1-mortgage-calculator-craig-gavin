@@ -16,7 +16,7 @@ class LoanResultTableViewCell: UITableViewCell {
     var cellSettingsHelper = CellSettingsHelper()
     var loan: Loan? {
         didSet {
-            updateViews()
+            reloadInputViews()
         }
     }
     
@@ -40,9 +40,8 @@ class LoanResultTableViewCell: UITableViewCell {
     }
     
     
-    func lowerLeftLabelSetter() -> String {
-        guard let loan = loan,
-        let lowerLeftPreference = cellSettingsHelper.lowerLeftPreference else { return "" }
+    func lowerLeftLabelSetter(_ loan: Loan) -> String {
+        guard let lowerLeftPreference = cellSettingsHelper.lowerLeftPreference else { return "" }
         let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
         let initialPrincipal = loan.principal
         let totalPaid = initialPrincipal + totalInterest
@@ -80,9 +79,8 @@ class LoanResultTableViewCell: UITableViewCell {
         }
     }
     
-   func upperRightLabelSetter() -> String {
-          guard let loan = loan,
-            let upperRightPreference = cellSettingsHelper.upperRightPreference else { return "" }
+    func upperRightLabelSetter(_ loan: Loan) -> String {
+          guard let upperRightPreference = cellSettingsHelper.upperRightPreference else { return "" }
           let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
           let initialPrincipal = loan.principal
           let totalPaid = initialPrincipal + totalInterest
@@ -120,9 +118,8 @@ class LoanResultTableViewCell: UITableViewCell {
           }
       }
     
-    func lowerRightLabelSetter() -> String {
-           guard let loan = loan,
-            let lowerRightPreference = cellSettingsHelper.lowerRightPreference else { return "" }
+    func lowerRightLabelSetter(_ loan: Loan) -> String {
+           guard let lowerRightPreference = cellSettingsHelper.lowerRightPreference else { return "" }
            let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
            let initialPrincipal = loan.principal
            let totalPaid = initialPrincipal + totalInterest
@@ -161,7 +158,7 @@ class LoanResultTableViewCell: UITableViewCell {
        }
 
     
-    private func updateViews() {
+    private func updateViews(_ loan: Loan?) {
         guard let loan = loan
             else { return }
 //        let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
@@ -179,9 +176,9 @@ class LoanResultTableViewCell: UITableViewCell {
         
         // new code starts here
         loanTypeLabel.text = loan.type
-        totalInterestPaidLabel.text = lowerLeftLabelSetter()
-        totalInterestPaidLabel.text = upperRightLabelSetter()
-        totalAmountPaidLabel.text = lowerRightLabelSetter()
+        totalInterestPaidLabel.text = lowerLeftLabelSetter(loan)
+        totalInterestPaidLabel.text = upperRightLabelSetter(loan)
+        totalAmountPaidLabel.text = lowerRightLabelSetter(loan)
         
         
         
@@ -194,12 +191,4 @@ class LoanResultTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-}
-
-extension LoanResultTableViewCell: UpdateCellFields {
-    func updateFields() {
-        updateViews()
-    }
-    
-    
 }

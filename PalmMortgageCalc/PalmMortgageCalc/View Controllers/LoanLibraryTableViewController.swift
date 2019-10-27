@@ -56,6 +56,10 @@ class LoanLibraryTableViewController: UITableViewController {
         guard let loanmodelcontroller = loanmodelcontroller else { return UITableViewCell() }
         let loan = loanmodelcontroller.loans[indexPath.row]
         cell.loan = loan
+//        loanTypeLabel.text = loan.type
+        cell.totalInterestPaidLabel.text = cell.lowerLeftLabelSetter(loan)
+        cell.totalInterestPaidLabel.text = cell.upperRightLabelSetter(loan)
+        cell.totalAmountPaidLabel.text = cell.lowerRightLabelSetter(loan)
         
         // The following block alternates the colors of the cells in the table view
         if (indexPath.row % 2) == 0 {
@@ -113,5 +117,10 @@ extension LoanLibraryTableViewController: AddLoanDelegate {
         
         save()
     }
-    
+}
+
+extension LoanLibraryTableViewController: UpdateCellFields {
+    func updateFields() {
+        tableView.reloadData()
+    }
 }
