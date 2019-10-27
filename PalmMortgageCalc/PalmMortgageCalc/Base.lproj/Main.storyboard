@@ -44,12 +44,26 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2So-7A-gag">
+                                <rect key="frame" x="20" y="140" width="374" height="140"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="P72-qF-ITj"/>
+                                </constraints>
+                                <string key="text">Enter your loan info to calculate costs, or look at saved loans to compare the effects of different inputs such as additional monthly payments or higher down payments.</string>
+                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.93708926439999995" green="0.97627633810000003" blue="0.99607461689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="2So-7A-gag" firstAttribute="leading" secondItem="zhg-MI-okR" secondAttribute="leading" constant="20" id="Mqn-a1-BcT"/>
+                            <constraint firstItem="zhg-MI-okR" firstAttribute="trailing" secondItem="2So-7A-gag" secondAttribute="trailing" constant="20" id="Une-Ns-Vnj"/>
                             <constraint firstItem="eDt-N2-H9V" firstAttribute="centerY" secondItem="cOz-gy-imN" secondAttribute="centerY" id="bBA-iQ-67Y"/>
                             <constraint firstItem="eDt-N2-H9V" firstAttribute="leading" secondItem="zhg-MI-okR" secondAttribute="leading" constant="60" id="fc2-V6-csV"/>
                             <constraint firstItem="eDt-N2-H9V" firstAttribute="centerX" secondItem="cOz-gy-imN" secondAttribute="centerX" id="jjm-SA-HL2"/>
+                            <constraint firstItem="2So-7A-gag" firstAttribute="top" secondItem="zhg-MI-okR" secondAttribute="top" id="oLC-oX-l3Q"/>
                             <constraint firstItem="zhg-MI-okR" firstAttribute="trailing" secondItem="eDt-N2-H9V" secondAttribute="trailing" constant="60" id="pan-w6-ER4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zhg-MI-okR"/>
@@ -61,6 +75,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="loanCalcButton" destination="yIJ-Gy-96h" id="xVg-sI-wrc"/>
+                        <outlet property="loanLibraryButton" destination="brF-ZT-MN9" id="Lcu-Lw-doF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ou-1y-iVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,13 +106,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-2T-QqM">
                                                     <rect key="frame" x="0.0" y="0.0" width="195" height="36"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-sI-RqD">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-sI-RqD">
                                                             <rect key="frame" x="0.0" y="0.0" width="195" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2j-JD-B20">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2j-JD-B20">
                                                             <rect key="frame" x="0.0" y="21.5" width="195" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                             <nil key="textColor"/>
@@ -200,6 +218,16 @@
                                     <segue destination="aFK-qL-6Q2" kind="presentation" identifier="UpperRightSegue" id="PdU-zq-ocr"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Choose the items displayed in the Loan Library" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3C-v5-Xkb">
+                                <rect key="frame" x="20" y="140" width="374" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bYH-NE-teM"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.93708926439999995" green="0.97627633810000003" blue="0.99607461689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -211,9 +239,12 @@
                             <constraint firstItem="7Zu-V1-6nA" firstAttribute="centerY" secondItem="OQX-8c-LCU" secondAttribute="centerY" id="OmZ-pC-R5H"/>
                             <constraint firstItem="fpo-a5-DVu" firstAttribute="trailing" secondItem="W4d-4y-cP0" secondAttribute="trailing" constant="20" id="Xuf-k8-jwf"/>
                             <constraint firstItem="OQX-8c-LCU" firstAttribute="leading" secondItem="fpo-a5-DVu" secondAttribute="leading" constant="20" id="bVb-g3-aw3"/>
+                            <constraint firstItem="t3C-v5-Xkb" firstAttribute="top" secondItem="fpo-a5-DVu" secondAttribute="top" id="dOR-fM-ggt"/>
                             <constraint firstItem="DNR-bc-lXb" firstAttribute="centerY" secondItem="W4d-4y-cP0" secondAttribute="centerY" id="feE-1E-ypD"/>
                             <constraint firstItem="fpo-a5-DVu" firstAttribute="trailing" secondItem="u0N-vi-xhB" secondAttribute="trailing" constant="20" id="lQl-R8-wdU"/>
                             <constraint firstItem="u0N-vi-xhB" firstAttribute="top" secondItem="OQX-8c-LCU" secondAttribute="bottom" constant="25" id="rK6-wX-oE8"/>
+                            <constraint firstItem="t3C-v5-Xkb" firstAttribute="leading" secondItem="fpo-a5-DVu" secondAttribute="leading" constant="20" id="sHg-2M-ltz"/>
+                            <constraint firstItem="fpo-a5-DVu" firstAttribute="trailing" secondItem="t3C-v5-Xkb" secondAttribute="trailing" constant="20" id="vio-JW-e9g"/>
                             <constraint firstItem="u0N-vi-xhB" firstAttribute="leading" secondItem="fpo-a5-DVu" secondAttribute="leading" constant="20" id="zm3-Fu-mJc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fpo-a5-DVu"/>
@@ -222,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xf9-r8-g5Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-371" y="864"/>
+            <point key="canvasLocation" x="-371.01449275362324" y="863.83928571428567"/>
         </scene>
         <!--Settings Cell Data View Controller-->
         <scene sceneID="IYb-K9-lHu">
@@ -232,79 +263,92 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-Ov-bOP">
-                                <rect key="frame" x="148" y="379" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-Ov-bOP">
+                                <rect key="frame" x="148" y="389" width="118" height="30"/>
                                 <state key="normal" title="Starting Principal"/>
                                 <connections>
                                     <action selector="selectDataToPrincipal:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="YAO-7q-z38"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5N3-Kd-duJ">
-                                <rect key="frame" x="146" y="417" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Total Interest Paid"/>
-                                <connections>
-                                    <action selector="selectDataToTotalInterest:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="h0h-2v-mBL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjx-hg-THx">
-                                <rect key="frame" x="114" y="189" width="192" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjx-hg-THx">
+                                <rect key="frame" x="111" y="189" width="192" height="30"/>
                                 <state key="normal" title="Additional Monthly Payment"/>
                                 <connections>
                                     <action selector="selectDataToAdditionalPayment:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="y6L-97-yKz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guD-lM-BVZ">
-                                <rect key="frame" x="158" y="227" width="103" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guD-lM-BVZ">
+                                <rect key="frame" x="155.5" y="229" width="103" height="30"/>
                                 <state key="normal" title="Down Payment"/>
                                 <connections>
                                     <action selector="selectDataToDownPayment:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="oPv-px-Gby"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECR-Oy-VtU">
-                                <rect key="frame" x="148" y="265" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECR-Oy-VtU">
+                                <rect key="frame" x="163" y="269" width="88" height="30"/>
                                 <state key="normal" title="Interest Rate"/>
                                 <connections>
                                     <action selector="selectDataToInterestRate:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="5dF-pI-n3c"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkc-Hp-bMF">
-                                <rect key="frame" x="168" y="303" width="85" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkc-Hp-bMF">
+                                <rect key="frame" x="164.5" y="309" width="85" height="30"/>
                                 <state key="normal" title="Loan Length"/>
                                 <connections>
                                     <action selector="selectDataToLoanTerm:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="cqJ-RR-4BQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag8-1p-4bH">
-                                <rect key="frame" x="148" y="341" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag8-1p-4bH">
+                                <rect key="frame" x="147.5" y="349" width="119" height="30"/>
                                 <state key="normal" title="Monthly Payment"/>
                                 <connections>
                                     <action selector="selectDataToMonthlyPayment:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="hR9-06-etI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select an Item to Show" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6D-5b-mEI">
-                                <rect key="frame" x="20" y="114" width="374" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select an Item to Show" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6D-5b-mEI">
+                                <rect key="frame" x="20" y="110" width="374" height="33.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTg-F4-mLW">
-                                <rect key="frame" x="148" y="455" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTg-F4-mLW">
+                                <rect key="frame" x="153.5" y="469" width="107" height="30"/>
                                 <state key="normal" title="Total Loan Cost"/>
                                 <connections>
                                     <action selector="selectDataToTotalCost:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="0DU-kF-I1i"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5N3-Kd-duJ">
+                                <rect key="frame" x="145.5" y="429" width="123" height="30"/>
+                                <state key="normal" title="Total Interest Paid"/>
+                                <connections>
+                                    <action selector="selectDataToTotalInterest:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="h0h-2v-mBL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93708926439999995" green="0.97627633810000003" blue="0.99607461689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="ECR-Oy-VtU" firstAttribute="centerX" secondItem="xcS-I9-F2h" secondAttribute="centerX" id="2du-pa-mNt"/>
+                            <constraint firstItem="Rjx-hg-THx" firstAttribute="top" secondItem="Z6D-5b-mEI" secondAttribute="bottom" constant="45.5" id="5hr-90-j50"/>
+                            <constraint firstItem="5N3-Kd-duJ" firstAttribute="top" secondItem="oFb-Ov-bOP" secondAttribute="bottom" constant="10" id="BMT-x6-7Mm"/>
+                            <constraint firstItem="5N3-Kd-duJ" firstAttribute="centerX" secondItem="xcS-I9-F2h" secondAttribute="centerX" id="E85-jM-Nt2"/>
+                            <constraint firstItem="nkc-Hp-bMF" firstAttribute="top" secondItem="ECR-Oy-VtU" secondAttribute="bottom" constant="10" id="FTD-kb-YwZ"/>
+                            <constraint firstItem="oFb-Ov-bOP" firstAttribute="centerX" secondItem="xcS-I9-F2h" secondAttribute="centerX" id="Fwy-VI-cYx"/>
+                            <constraint firstItem="Rjx-hg-THx" firstAttribute="centerX" secondItem="xcS-I9-F2h" secondAttribute="centerX" id="IV9-fb-PFC"/>
+                            <constraint firstItem="guD-lM-BVZ" firstAttribute="top" secondItem="Rjx-hg-THx" secondAttribute="bottom" constant="10" id="Jla-HW-eXN"/>
+                            <constraint firstItem="ag8-1p-4bH" firstAttribute="top" secondItem="nkc-Hp-bMF" secondAttribute="bottom" constant="10" id="MKz-Zs-Oeh"/>
+                            <constraint firstItem="ag8-1p-4bH" firstAttribute="centerX" secondItem="xcS-I9-F2h" secondAttribute="centerX" id="Nb7-aE-y2P"/>
+                            <constraint firstItem="oFb-Ov-bOP" firstAttribute="top" secondItem="ag8-1p-4bH" secondAttribute="bottom" constant="10" id="OGm-yK-AEO"/>
+                            <constraint firstItem="ECR-Oy-VtU" firstAttribute="top" secondItem="guD-lM-BVZ" secondAttribute="bottom" constant="10" id="Pi2-NM-RuE"/>
+                            <constraint firstItem="Z6D-5b-mEI" firstAttribute="leading" secondItem="SNS-5C-uCw" secondAttribute="leading" constant="20" id="QCt-Aw-0Ke"/>
+                            <constraint firstItem="guD-lM-BVZ" firstAttribute="centerX" secondItem="xcS-I9-F2h" secondAttribute="centerX" id="aHC-qK-jF9"/>
+                            <constraint firstItem="gTg-F4-mLW" firstAttribute="centerX" secondItem="xcS-I9-F2h" secondAttribute="centerX" id="jzP-zM-0c1"/>
+                            <constraint firstItem="Z6D-5b-mEI" firstAttribute="centerX" secondItem="xcS-I9-F2h" secondAttribute="centerX" id="oZj-M3-U9A"/>
+                            <constraint firstItem="nkc-Hp-bMF" firstAttribute="centerX" secondItem="xcS-I9-F2h" secondAttribute="centerX" id="q0v-4S-6jS"/>
+                            <constraint firstItem="SNS-5C-uCw" firstAttribute="trailing" secondItem="Z6D-5b-mEI" secondAttribute="trailing" constant="20" id="spm-oj-1sv"/>
+                            <constraint firstItem="Z6D-5b-mEI" firstAttribute="top" secondItem="SNS-5C-uCw" secondAttribute="top" constant="110" id="wCN-vJ-rKJ"/>
+                            <constraint firstItem="gTg-F4-mLW" firstAttribute="top" secondItem="5N3-Kd-duJ" secondAttribute="bottom" constant="10" id="wcw-7j-xKz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SNS-5C-uCw"/>
                     </view>
                 </viewController>
