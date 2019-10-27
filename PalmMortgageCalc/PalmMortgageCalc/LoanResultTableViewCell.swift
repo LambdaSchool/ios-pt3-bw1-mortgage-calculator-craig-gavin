@@ -22,9 +22,9 @@ class LoanResultTableViewCell: UITableViewCell {
     
     // MARK: Outlets
     @IBOutlet weak var loanTypeLabel: UILabel!
-    @IBOutlet weak var totalInterestPaidLabel: UILabel!
-    @IBOutlet weak var initialPriceLabel: UILabel!
-    @IBOutlet weak var totalAmountPaidLabel: UILabel!
+    @IBOutlet weak var lowerLeftLabel: UILabel!
+    @IBOutlet weak var upperRightLabel: UILabel!
+    @IBOutlet weak var lowerRightLabel: UILabel!
     
 
     // MARK: Methods
@@ -176,9 +176,9 @@ class LoanResultTableViewCell: UITableViewCell {
         
         // new code starts here
         loanTypeLabel.text = loan.type
-        totalInterestPaidLabel.text = lowerLeftLabelSetter(loan)
-        totalInterestPaidLabel.text = upperRightLabelSetter(loan)
-        totalAmountPaidLabel.text = lowerRightLabelSetter(loan)
+        lowerLeftLabel.text = lowerLeftLabelSetter(loan)
+        upperRightLabel.text = upperRightLabelSetter(loan)
+        lowerRightLabel.text = lowerRightLabelSetter(loan)
         
         
         

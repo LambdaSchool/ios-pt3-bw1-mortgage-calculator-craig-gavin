@@ -88,13 +88,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-2T-QqM">
                                                     <rect key="frame" x="0.0" y="0.0" width="195" height="36"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-sI-RqD">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-sI-RqD">
                                                             <rect key="frame" x="0.0" y="0.0" width="195" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2j-JD-B20">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2j-JD-B20">
                                                             <rect key="frame" x="0.0" y="21.5" width="195" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                             <nil key="textColor"/>
@@ -129,10 +129,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="initialPriceLabel" destination="gft-vp-bEA" id="A9M-fk-W82"/>
                                     <outlet property="loanTypeLabel" destination="1Uo-sI-RqD" id="gDq-ER-go6"/>
-                                    <outlet property="totalAmountPaidLabel" destination="LTN-9I-3Ww" id="d3e-VK-aFZ"/>
-                                    <outlet property="totalInterestPaidLabel" destination="k2j-JD-B20" id="Frc-Ob-buw"/>
+                                    <outlet property="lowerLeftLabel" destination="k2j-JD-B20" id="Frc-Ob-buw"/>
+                                    <outlet property="lowerRightLabel" destination="LTN-9I-3Ww" id="d3e-VK-aFZ"/>
+                                    <outlet property="upperRightLabel" destination="gft-vp-bEA" id="A9M-fk-W82"/>
                                     <segue destination="dyx-Tx-g0d" kind="show" identifier="ShowLoanDetailSegue" id="LfH-8v-3kW"/>
                                 </connections>
                             </tableViewCell>
@@ -186,15 +186,15 @@
                                     <segue destination="aFK-qL-6Q2" kind="presentation" identifier="LowerLeftSegue" id="vZ1-TH-xCb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4d-4y-cP0">
-                                <rect key="frame" x="20" y="313" width="374" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4d-4y-cP0">
+                                <rect key="frame" x="20" y="314" width="374" height="28"/>
                                 <state key="normal" title="Lower Right Item"/>
                                 <connections>
                                     <segue destination="aFK-qL-6Q2" kind="presentation" identifier="LowerRightSegue" id="2vi-LV-gFT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0N-vi-xhB">
-                                <rect key="frame" x="20" y="252" width="374" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0N-vi-xhB">
+                                <rect key="frame" x="20" y="245" width="374" height="44"/>
                                 <state key="normal" title="Upper Right Item"/>
                                 <connections>
                                     <segue destination="aFK-qL-6Q2" kind="presentation" identifier="UpperRightSegue" id="PdU-zq-ocr"/>
@@ -205,10 +205,16 @@
                         <constraints>
                             <constraint firstItem="OQX-8c-LCU" firstAttribute="top" secondItem="fpo-a5-DVu" secondAttribute="top" constant="50" id="7YS-pb-8zV"/>
                             <constraint firstItem="2X5-SP-DoU" firstAttribute="centerY" secondItem="u0N-vi-xhB" secondAttribute="centerY" id="9RC-dU-umH"/>
+                            <constraint firstItem="W4d-4y-cP0" firstAttribute="leading" secondItem="fpo-a5-DVu" secondAttribute="leading" constant="20" id="Abj-U1-mGJ"/>
+                            <constraint firstItem="W4d-4y-cP0" firstAttribute="top" secondItem="u0N-vi-xhB" secondAttribute="bottom" constant="25" id="EGF-0E-JXt"/>
                             <constraint firstItem="fpo-a5-DVu" firstAttribute="trailing" secondItem="OQX-8c-LCU" secondAttribute="trailing" constant="20" id="EtM-Y5-nqZ"/>
                             <constraint firstItem="7Zu-V1-6nA" firstAttribute="centerY" secondItem="OQX-8c-LCU" secondAttribute="centerY" id="OmZ-pC-R5H"/>
+                            <constraint firstItem="fpo-a5-DVu" firstAttribute="trailing" secondItem="W4d-4y-cP0" secondAttribute="trailing" constant="20" id="Xuf-k8-jwf"/>
                             <constraint firstItem="OQX-8c-LCU" firstAttribute="leading" secondItem="fpo-a5-DVu" secondAttribute="leading" constant="20" id="bVb-g3-aw3"/>
                             <constraint firstItem="DNR-bc-lXb" firstAttribute="centerY" secondItem="W4d-4y-cP0" secondAttribute="centerY" id="feE-1E-ypD"/>
+                            <constraint firstItem="fpo-a5-DVu" firstAttribute="trailing" secondItem="u0N-vi-xhB" secondAttribute="trailing" constant="20" id="lQl-R8-wdU"/>
+                            <constraint firstItem="u0N-vi-xhB" firstAttribute="top" secondItem="OQX-8c-LCU" secondAttribute="bottom" constant="25" id="rK6-wX-oE8"/>
+                            <constraint firstItem="u0N-vi-xhB" firstAttribute="leading" secondItem="fpo-a5-DVu" secondAttribute="leading" constant="20" id="zm3-Fu-mJc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fpo-a5-DVu"/>
                     </view>
@@ -216,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xf9-r8-g5Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="496" y="1175"/>
+            <point key="canvasLocation" x="-371" y="864"/>
         </scene>
         <!--Settings Cell Data View Controller-->
         <scene sceneID="IYb-K9-lHu">
@@ -304,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBf-3O-iJy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1240.5797101449277" y="1105.5803571428571"/>
+            <point key="canvasLocation" x="496" y="1115"/>
         </scene>
         <!--Loan Detail View Controller-->
         <scene sceneID="lZL-WW-Jyc">
@@ -707,6 +713,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gsC-e2-AWA"/>
-        <segue reference="2vi-LV-gFT"/>
+        <segue reference="PdU-zq-ocr"/>
     </inferredMetricsTieBreakers>
 </document>

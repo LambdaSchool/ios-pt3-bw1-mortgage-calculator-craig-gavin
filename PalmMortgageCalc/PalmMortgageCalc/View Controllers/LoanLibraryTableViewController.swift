@@ -57,9 +57,9 @@ class LoanLibraryTableViewController: UITableViewController {
         let loan = loanmodelcontroller.loans[indexPath.row]
         cell.loan = loan
 //        loanTypeLabel.text = loan.type
-        cell.totalInterestPaidLabel.text = cell.lowerLeftLabelSetter(loan)
-        cell.totalInterestPaidLabel.text = cell.upperRightLabelSetter(loan)
-        cell.totalAmountPaidLabel.text = cell.lowerRightLabelSetter(loan)
+        cell.lowerLeftLabel.text = cell.lowerLeftLabelSetter(loan)
+        cell.upperRightLabel.text = cell.upperRightLabelSetter(loan)
+        cell.lowerRightLabel.text = cell.lowerRightLabelSetter(loan)
         
         // The following block alternates the colors of the cells in the table view
         if (indexPath.row % 2) == 0 {
