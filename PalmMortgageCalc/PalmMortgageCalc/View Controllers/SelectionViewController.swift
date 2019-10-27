@@ -11,7 +11,8 @@ import UIKit
 class SelectionViewController: UIViewController {
     
     // MARK: Properties
-    let loanmodelcontroller = LoanModelController()
+    let loanModelController = LoanModelController()
+    var cellSettingsHelper = CellSettingsHelper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class SelectionViewController: UIViewController {
     
     func save() {
         guard let loanLibrary = LoanLibraryTableViewController() as? LoanLibraryTableViewController else { return }
-        if let data = try? PropertyListEncoder().encode(loanmodelcontroller.loans) {
+        if let data = try? PropertyListEncoder().encode(loanModelController.loans) {
             try? data.write(to: loanLibrary.persistentStoreURL)
         }
     }
@@ -37,26 +38,20 @@ class SelectionViewController: UIViewController {
         switch segue.identifier {
         case "ShowCalculatorSegue":
             guard let loanCalculatorVC = segue.destination as? LoanCalculatorViewController else { fatalError() }
-            loanCalculatorVC.delegateSelectionVC = self
-            loanCalculatorVC.loanmodelcontroller = loanmodelcontroller
+            loanCalculatorVC.delegate = LoanLibraryTableViewController()
+            loanCalculatorVC.loanmodelcontroller = loanModelController
         case "ShowLibrarySegue":
             guard let loanLibraryVC = segue.destination as? LoanLibraryTableViewController else { fatalError() }
-            loanLibraryVC.loanmodelcontroller = loanmodelcontroller
+            loanLibraryVC.loanmodelcontroller = loanModelController
+            loanLibraryVC.cellSettingsHelper = cellSettingsHelper
         default:
-            return
+            guard let showSettingsVC = segue.destination as? SettingsViewController else { fatalError() }
+            showSettingsVC.cellSettingsHelper = cellSettingsHelper
         }
     }
 
 }
 
 // The SelectionVCDelegate takes a loan created in the calculator and appends it to the loans array and then immediately segues to the loan library
-extension SelectionViewController: SelectionVCDelegate {
-    func loanWasAdded(_ loan: Loan) {
-        loanmodelcontroller.loans.append(loan)
-        dismiss(animated: true, completion: nil)
-        save()
-        performSegue(withIdentifier: "ShowLibrarySegue", sender: self)
-    }
-    
-}
+
 

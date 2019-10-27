@@ -29,42 +29,59 @@ class SettingsCellDataViewController: UIViewController {
     @IBAction func selectDataToAdditionalPayment(_ sender: UIButton) {
         guard let menuLocation = menuLoaction,
             let cellSettingsHelper = cellSettingsHelper else { return }
-        
+        cellSettingsHelper.cellLocationPreferenceKey = menuLocation
+        cellSettingsHelper.setDataToAdditionalPayment()
+        delegate?.updateFields()
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func selectDataToDownPayment(_ sender: UIButton) {
             guard let menuLocation = menuLoaction,
                 let cellSettingsHelper = cellSettingsHelper else { return }
-        
+        cellSettingsHelper.cellLocationPreferenceKey = menuLocation
+        cellSettingsHelper.setDataToDownPayment()
+              dismiss(animated: true, completion: nil)
     }
     @IBAction func selectDataToInterestRate(_ sender: UIButton) {
             guard let menuLocation = menuLoaction,
                 let cellSettingsHelper = cellSettingsHelper else { return }
-        
+        cellSettingsHelper.cellLocationPreferenceKey = menuLocation
+        cellSettingsHelper.setDataToInterestRate()
+                dismiss(animated: true, completion: nil)
     }
     @IBAction func selectDataToLoanTerm(_ sender: UIButton) {
             guard let menuLocation = menuLoaction,
                 let cellSettingsHelper = cellSettingsHelper else { return }
-        
+        cellSettingsHelper.cellLocationPreferenceKey = menuLocation
+        cellSettingsHelper.setDataToLoanTerm()
+                dismiss(animated: true, completion: nil)
     }
     @IBAction func selectDataToMonthlyPayment(_ sender: UIButton) {
             guard let menuLocation = menuLoaction,
                 let cellSettingsHelper = cellSettingsHelper else { return }
-        
+        cellSettingsHelper.cellLocationPreferenceKey = menuLocation
+        cellSettingsHelper.setDataToMonthlyPayment()
+               dismiss(animated: true, completion: nil)
     }
     @IBAction func selectDataToPrincipal(_ sender: UIButton) {
             guard let menuLocation = menuLoaction,
                 let cellSettingsHelper = cellSettingsHelper else { return }
-        
+        cellSettingsHelper.cellLocationPreferenceKey = menuLocation
+        cellSettingsHelper.setDataToPrincipal()
+               dismiss(animated: true, completion: nil)
     }
     @IBAction func selectDataToTotalInterest(_ sender: UIButton) {
             guard let menuLocation = menuLoaction,
                 let cellSettingsHelper = cellSettingsHelper else { return }
-        
+        cellSettingsHelper.cellLocationPreferenceKey = menuLocation
+        cellSettingsHelper.setDataToTotalInterest()
+               dismiss(animated: true, completion: nil)
     }
     @IBAction func selectDataToTotalCost(_ sender: UIButton) {
             guard let menuLocation = menuLoaction,
                 let cellSettingsHelper = cellSettingsHelper else { return }
-        
+        cellSettingsHelper.cellLocationPreferenceKey = menuLocation
+        cellSettingsHelper.setDataToTotalCost()
+               dismiss(animated: true, completion: nil)
     }
     
     

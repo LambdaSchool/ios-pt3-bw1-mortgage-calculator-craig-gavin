@@ -9,6 +9,8 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    var cellSettingsHelper: CellSettingsHelper?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,14 +19,30 @@ class SettingsViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "LowerLeftSegue":
+                guard let settingsCellDataVC = segue.destination as? SettingsCellDataViewController else { fatalError() }
+                settingsCellDataVC.cellSettingsHelper = cellSettingsHelper
+                settingsCellDataVC.menuLoaction = "lowerLeft"
+                settingsCellDataVC.delegate = LoanResultTableViewCell()
+        case "UpperRightSegue":
+            guard let settingsCellDataVC = segue.destination as? SettingsCellDataViewController else { fatalError() }
+            settingsCellDataVC.cellSettingsHelper = cellSettingsHelper
+            settingsCellDataVC.menuLoaction = "upperRight"
+            settingsCellDataVC.delegate = LoanResultTableViewCell()
+        case "LowerRightSegue":
+            guard let settingsCellDataVC = segue.destination as? SettingsCellDataViewController else { fatalError() }
+            settingsCellDataVC.cellSettingsHelper = cellSettingsHelper
+            settingsCellDataVC.menuLoaction = "lowerRight"
+            settingsCellDataVC.delegate = LoanResultTableViewCell()
+        default:
+            return
+        }
     }
-    */
 
 }
+
+// TODO:  need to somehow delegate (verb) from the settingscelldataVC to run the update function in the tableviewcell.

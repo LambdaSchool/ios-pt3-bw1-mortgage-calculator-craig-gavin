@@ -11,15 +11,11 @@ import UIKit
 protocol AddLoanDelegate {
     func loanWasAdded(_ loan: Loan)
 }
-protocol SelectionVCDelegate {
-    func loanWasAdded(_ loan: Loan)
-}
 
-class LoanCalculatorViewController: UIViewController, UITextFieldDelegate {
+class LoanCalculatorViewController: UIViewController {
     
     // MARK: Properties
     var delegate: AddLoanDelegate?
-    var delegateSelectionVC: SelectionVCDelegate?
     var loanmodelcontroller: LoanModelController?
     var loan: Loan?
     
@@ -36,8 +32,8 @@ class LoanCalculatorViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+//        view.addGestureRecognizer(tap)
     }
     
     
@@ -63,7 +59,6 @@ class LoanCalculatorViewController: UIViewController, UITextFieldDelegate {
         let loan = Loan(type: loanType, principal: principal, years: term, rate: (rate / 100), downPayment: downPayment, paymentsPerPeriod: 12, additionalPrincipal: additionalPayment)
         
         delegate?.loanWasAdded(loan)
-        delegateSelectionVC?.loanWasAdded(loan)
 
     }
 }

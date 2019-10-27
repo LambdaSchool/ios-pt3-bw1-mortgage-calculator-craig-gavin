@@ -12,6 +12,7 @@ class LoanLibraryTableViewController: UITableViewController {
 
     var loanmodelcontroller: LoanModelController?
     let loancontroller = LoanController()
+    var cellSettingsHelper: CellSettingsHelper?
     
     var persistentStoreURL: URL! {
         if let documentURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
