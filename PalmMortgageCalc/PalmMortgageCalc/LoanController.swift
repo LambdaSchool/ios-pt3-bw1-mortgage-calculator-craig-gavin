@@ -23,8 +23,8 @@ class LoanController {
         let principal = (loan.principal - loan.downPayment)
         let timeFactor = pow((1 + (loan.rate / 12)), (loan.paymentsPerPeriod * loan.years))
         let discountFactor = (timeFactor - 1) / (timeFactor * (loan.rate / 12))
-        
-        return (((principal / discountFactor) + loan.additionalPrincipal) * 100).rounded() / 100
+        return ((principal / discountFactor) * 100).rounded() / 100
+//        return (((principal / discountFactor) + loan.additionalPrincipal) * 100).rounded() / 100
     }
     
     // This function takes in a Loan and calculates the monthly interest payment included in the loan payment
