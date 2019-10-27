@@ -27,17 +27,17 @@ class SettingsViewController: UIViewController {
                 guard let settingsCellDataVC = segue.destination as? SettingsCellDataViewController else { fatalError() }
                 settingsCellDataVC.cellSettingsHelper = cellSettingsHelper
                 settingsCellDataVC.menuLoaction = "lowerLeft"
-                settingsCellDataVC.delegate = LoanResultTableViewCell()
+                settingsCellDataVC.delegate = LoanLibraryTableViewController()
         case "UpperRightSegue":
             guard let settingsCellDataVC = segue.destination as? SettingsCellDataViewController else { fatalError() }
             settingsCellDataVC.cellSettingsHelper = cellSettingsHelper
             settingsCellDataVC.menuLoaction = "upperRight"
-            settingsCellDataVC.delegate = LoanResultTableViewCell()
+            settingsCellDataVC.delegate = LoanLibraryTableViewController()
         case "LowerRightSegue":
             guard let settingsCellDataVC = segue.destination as? SettingsCellDataViewController else { fatalError() }
             settingsCellDataVC.cellSettingsHelper = cellSettingsHelper
             settingsCellDataVC.menuLoaction = "lowerRight"
-            settingsCellDataVC.delegate = LoanResultTableViewCell()
+            settingsCellDataVC.delegate = LoanLibraryTableViewController()
         default:
             return
         }
