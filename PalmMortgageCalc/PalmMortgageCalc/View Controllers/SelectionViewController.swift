@@ -14,6 +14,7 @@ class SelectionViewController: UIViewController {
     let loanModelController = LoanModelController()
     var cellSettingsHelper = CellSettingsHelper()
 
+    // Set up URL and file for persistence
     var persistentStoreURL: URL! {
         if let documentURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
             let persistentStoreURL = documentURL.appendingPathComponent("palmMortgage.plist")
@@ -22,17 +23,27 @@ class SelectionViewController: UIViewController {
         return nil
     }
     
+    // MARK: Outlets
+    @IBOutlet weak var loanCalcButton: UIButton!
+    @IBOutlet weak var loanLibraryButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Decode for persistence.
         let loanmodelcontroller = loanModelController
         if let data = try? Data(contentsOf: persistentStoreURL),
             let savedLoans = try? PropertyListDecoder().decode([Loan].self, from: data) {
             loanmodelcontroller.loans = savedLoans
         }
-        // Do any additional setup after loading the view.
+        
+        // Round the corners of the buttons
+        loanCalcButton.layer.cornerRadius = 17
+        loanLibraryButton.layer.cornerRadius = 17
     }
     
+    // Function to encode for persistence
     func save() {
         guard let loanLibrary = LoanLibraryTableViewController() as? LoanLibraryTableViewController else { return }
         if let data = try? PropertyListEncoder().encode(loanModelController.loans) {
