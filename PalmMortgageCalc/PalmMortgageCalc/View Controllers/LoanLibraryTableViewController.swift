@@ -27,11 +27,11 @@ class LoanLibraryTableViewController: UITableViewController {
         
         tableView.reloadData()
         
-        guard let loanmodelcontroller = loanmodelcontroller else { return }
-        if let data = try? Data(contentsOf: persistentStoreURL),
-            let savedLoans = try? PropertyListDecoder().decode([Loan].self, from: data) {
-            loanmodelcontroller.loans = savedLoans
-        }
+//        guard let loanmodelcontroller = loanmodelcontroller else { return }
+//        if let data = try? Data(contentsOf: persistentStoreURL),
+//            let savedLoans = try? PropertyListDecoder().decode([Loan].self, from: data) {
+//            loanmodelcontroller.loans = savedLoans
+//        }
     }
     
     func save () {
