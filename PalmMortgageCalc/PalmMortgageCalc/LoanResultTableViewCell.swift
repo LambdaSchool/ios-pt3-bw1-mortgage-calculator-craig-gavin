@@ -13,6 +13,7 @@ class LoanResultTableViewCell: UITableViewCell {
     // MARK: Properties
     // Initialized an instance of LoanController in order to calculate the total interest paid.
     let loancontroller = LoanController()
+    var cellSettingsHelper = CellSettingsHelper()
     var loan: Loan? {
         didSet {
             updateViews()
@@ -40,8 +41,8 @@ class LoanResultTableViewCell: UITableViewCell {
     
     
     func lowerLeftLabelSetter() -> String {
-        guard let loan = loan else { return "" }
-        //         let lowerLeftLabelKey = UserDefaults.standard.????(forKey: .lowerLeft)
+        guard let loan = loan,
+        let lowerLeftPreference = cellSettingsHelper.lowerLeftPreference else { return "" }
         let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
         let initialPrincipal = loan.principal
         let totalPaid = initialPrincipal + totalInterest
@@ -51,7 +52,7 @@ class LoanResultTableViewCell: UITableViewCell {
         let interestRate = loan.rate * 100
         let monthlyPayment = loancontroller.paymentAmount(loan)
         
-        switch lowerLeftLabelKey {
+        switch lowerLeftPreference {
         case "totalInterest":
             let formattedPrincipal = currencyFormatter(totalInterest)
             return "Total Interest: \(formattedPrincipal)"
@@ -80,8 +81,8 @@ class LoanResultTableViewCell: UITableViewCell {
     }
     
    func upperRightLabelSetter() -> String {
-          guard let loan = loan else { return "" }
-          //         let upperRightLabelKey = UserDefaults.standard.????(forKey: .upperRight)
+          guard let loan = loan,
+            let upperRightPreference = cellSettingsHelper.upperRightPreference else { return "" }
           let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
           let initialPrincipal = loan.principal
           let totalPaid = initialPrincipal + totalInterest
@@ -91,7 +92,7 @@ class LoanResultTableViewCell: UITableViewCell {
           let interestRate = loan.rate * 100
           let monthlyPayment = loancontroller.paymentAmount(loan)
           
-          switch upperRightLabelKey {
+          switch upperRightPreference {
           case "totalInterest":
               let formattedPrincipal = currencyFormatter(totalInterest)
               return "Total Interest: \(formattedPrincipal)"
@@ -120,8 +121,8 @@ class LoanResultTableViewCell: UITableViewCell {
       }
     
     func lowerRightLabelSetter() -> String {
-           guard let loan = loan else { return "" }
-           //         let lowerRightLabelKey = UserDefaults.standard.????(forKey: .lowerRight)
+           guard let loan = loan,
+            let lowerRightPreference = cellSettingsHelper.lowerRightPreference else { return "" }
            let totalInterest = loancontroller.lifeOfLoanAmounts(loan).totalInterest
            let initialPrincipal = loan.principal
            let totalPaid = initialPrincipal + totalInterest
@@ -131,7 +132,7 @@ class LoanResultTableViewCell: UITableViewCell {
            let interestRate = loan.rate * 100
            let monthlyPayment = loancontroller.paymentAmount(loan)
            
-           switch lowerRightLabelKey {
+           switch lowerRightPreference {
            case "totalInterest":
                let formattedPrincipal = currencyFormatter(totalInterest)
                return "Total Interest: \(formattedPrincipal)"
@@ -193,4 +194,12 @@ class LoanResultTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+extension LoanResultTableViewCell: UpdateCellFields {
+    func updateFields() {
+        updateViews()
+    }
+    
+    
 }

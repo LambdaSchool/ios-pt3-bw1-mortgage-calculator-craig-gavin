@@ -54,7 +54,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zhg-MI-okR"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ciz-IL-ljq"/>
+                    <navigationItem key="navigationItem" id="ciz-IL-ljq">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="Ubd-hO-Eug">
+                            <connections>
+                                <segue destination="a52-IW-o1o" kind="show" identifier="ShowSettingsSegue" id="Nce-fX-vRr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ou-1y-iVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,13 +88,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-2T-QqM">
                                                     <rect key="frame" x="0.0" y="0.0" width="195" height="36"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-sI-RqD">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-sI-RqD">
                                                             <rect key="frame" x="0.0" y="0.0" width="195" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2j-JD-B20">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2j-JD-B20">
                                                             <rect key="frame" x="0.0" y="21.5" width="195" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                             <nil key="textColor"/>
@@ -136,9 +142,7 @@
                             <outlet property="delegate" destination="p51-JM-lXB" id="uYH-gy-RqD"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="hP0-NI-os5"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Loan Library" id="WpN-2l-kiA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0xo-R3-Vhq">
                             <connections>
@@ -160,57 +164,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lower Right" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cP-v7-8FF">
-                                <rect key="frame" x="20" y="359" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upper Right" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJL-OM-GfA">
-                                <rect key="frame" x="20" y="303" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DNR-bc-lXb">
-                                <rect key="frame" x="338" y="359" width="51" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="chevron.right" catalog="system"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Zu-V1-6nA">
-                                <rect key="frame" x="338" y="234" width="51" height="22"/>
+                                <rect key="frame" x="338" y="194" width="51" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="chevron.right" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2X5-SP-DoU">
-                                <rect key="frame" x="338" y="302" width="51" height="22"/>
+                                <rect key="frame" x="338" y="256" width="51" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="chevron.right" catalog="system"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lower Left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcd-Ov-QqL">
-                                <rect key="frame" x="20" y="235" width="374" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DNR-bc-lXb">
+                                <rect key="frame" x="338" y="317" width="51" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" image="chevron.right" catalog="system"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQX-8c-LCU">
+                                <rect key="frame" x="20" y="190" width="374" height="30"/>
+                                <state key="normal" title="Lower Left Item"/>
+                                <connections>
+                                    <segue destination="aFK-qL-6Q2" kind="presentation" identifier="LowerLeftSegue" id="vZ1-TH-xCb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4d-4y-cP0">
+                                <rect key="frame" x="20" y="313" width="374" height="30"/>
+                                <state key="normal" title="Lower Right Item"/>
+                                <connections>
+                                    <segue destination="aFK-qL-6Q2" kind="presentation" identifier="LowerRightSegue" id="2vi-LV-gFT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0N-vi-xhB">
+                                <rect key="frame" x="20" y="252" width="374" height="30"/>
+                                <state key="normal" title="Upper Right Item"/>
+                                <connections>
+                                    <segue destination="aFK-qL-6Q2" kind="presentation" identifier="UpperRightSegue" id="PdU-zq-ocr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93708926439999995" green="0.97627633810000003" blue="0.99607461689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="OQX-8c-LCU" firstAttribute="top" secondItem="fpo-a5-DVu" secondAttribute="top" constant="50" id="7YS-pb-8zV"/>
+                            <constraint firstItem="2X5-SP-DoU" firstAttribute="centerY" secondItem="u0N-vi-xhB" secondAttribute="centerY" id="9RC-dU-umH"/>
+                            <constraint firstItem="fpo-a5-DVu" firstAttribute="trailing" secondItem="OQX-8c-LCU" secondAttribute="trailing" constant="20" id="EtM-Y5-nqZ"/>
+                            <constraint firstItem="7Zu-V1-6nA" firstAttribute="centerY" secondItem="OQX-8c-LCU" secondAttribute="centerY" id="OmZ-pC-R5H"/>
+                            <constraint firstItem="OQX-8c-LCU" firstAttribute="leading" secondItem="fpo-a5-DVu" secondAttribute="leading" constant="20" id="bVb-g3-aw3"/>
+                            <constraint firstItem="DNR-bc-lXb" firstAttribute="centerY" secondItem="W4d-4y-cP0" secondAttribute="centerY" id="feE-1E-ypD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fpo-a5-DVu"/>
                     </view>
+                    <navigationItem key="navigationItem" id="5qm-bK-6ww"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xf9-r8-g5Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="495.6521739130435" y="1106.9196428571429"/>
+            <point key="canvasLocation" x="496" y="1175"/>
         </scene>
         <!--Settings Cell Data View Controller-->
         <scene sceneID="IYb-K9-lHu">
             <objects>
                 <viewController id="aFK-qL-6Q2" customClass="SettingsCellDataViewController" customModule="PalmMortgageCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xcS-I9-F2h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-Ov-bOP">
@@ -218,7 +231,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Starting Principal"/>
                                 <connections>
-                                    <action selector="setSelectDataToPrincipal" destination="aFK-qL-6Q2" eventType="touchUpInside" id="X5m-Wi-6go"/>
+                                    <action selector="selectDataToPrincipal:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="YAO-7q-z38"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5N3-Kd-duJ">
@@ -226,7 +239,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Total Interest Paid"/>
                                 <connections>
-                                    <action selector="setSelectDataToTotalInterest" destination="aFK-qL-6Q2" eventType="touchUpInside" id="nBg-mN-czM"/>
+                                    <action selector="selectDataToTotalInterest:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="h0h-2v-mBL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjx-hg-THx">
@@ -234,7 +247,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Additional Monthly Payment"/>
                                 <connections>
-                                    <action selector="setSelectDataToAdditionalPayment" destination="aFK-qL-6Q2" eventType="touchUpInside" id="aHO-M4-Alu"/>
+                                    <action selector="selectDataToAdditionalPayment:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="y6L-97-yKz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guD-lM-BVZ">
@@ -242,7 +255,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Down Payment"/>
                                 <connections>
-                                    <action selector="setSelectDataToDownPayment" destination="aFK-qL-6Q2" eventType="touchUpInside" id="xxb-Oo-O8g"/>
+                                    <action selector="selectDataToDownPayment:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="oPv-px-Gby"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECR-Oy-VtU">
@@ -250,7 +263,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Interest Rate"/>
                                 <connections>
-                                    <action selector="setSelectDataToInterestRate" destination="aFK-qL-6Q2" eventType="touchUpInside" id="Yyc-s0-qOo"/>
+                                    <action selector="selectDataToInterestRate:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="5dF-pI-n3c"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkc-Hp-bMF">
@@ -258,7 +271,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Loan Length"/>
                                 <connections>
-                                    <action selector="setSelectDataToLoanTerm" destination="aFK-qL-6Q2" eventType="touchUpInside" id="zZ1-bE-GaM"/>
+                                    <action selector="selectDataToLoanTerm:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="cqJ-RR-4BQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag8-1p-4bH">
@@ -266,7 +279,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Monthly Payment"/>
                                 <connections>
-                                    <action selector="setSelectDataToMonthlyPayment" destination="aFK-qL-6Q2" eventType="touchUpInside" id="upj-th-Eq9"/>
+                                    <action selector="selectDataToMonthlyPayment:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="hR9-06-etI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select an Item to Show" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6D-5b-mEI">
@@ -281,7 +294,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Total Loan Cost"/>
                                 <connections>
-                                    <action selector="setSelectDataToTotalCost" destination="aFK-qL-6Q2" eventType="touchUpInside" id="yYg-JR-679"/>
+                                    <action selector="selectDataToTotalCost:" destination="aFK-qL-6Q2" eventType="touchUpInside" id="0DU-kF-I1i"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -693,6 +706,7 @@
         <image name="chevron.right" catalog="system" width="48" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ebs-Ws-OdA"/>
+        <segue reference="gsC-e2-AWA"/>
+        <segue reference="2vi-LV-gFT"/>
     </inferredMetricsTieBreakers>
 </document>
