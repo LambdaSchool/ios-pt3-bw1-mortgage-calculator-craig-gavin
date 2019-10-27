@@ -56,7 +56,7 @@ class LoanLibraryTableViewController: UITableViewController {
         guard let loanmodelcontroller = loanmodelcontroller else { return UITableViewCell() }
         let loan = loanmodelcontroller.loans[indexPath.row]
         cell.loan = loan
-//        loanTypeLabel.text = loan.type
+        cell.loanTypeLabel.text = loan.type
         cell.lowerLeftLabel.text = cell.lowerLeftLabelSetter(loan)
         cell.upperRightLabel.text = cell.upperRightLabelSetter(loan)
         cell.lowerRightLabel.text = cell.lowerRightLabelSetter(loan)
