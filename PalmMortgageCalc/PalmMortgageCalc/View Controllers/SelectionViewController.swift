@@ -14,8 +14,22 @@ class SelectionViewController: UIViewController {
     let loanModelController = LoanModelController()
     var cellSettingsHelper = CellSettingsHelper()
 
+    var persistentStoreURL: URL! {
+        if let documentURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+            let persistentStoreURL = documentURL.appendingPathComponent("palmMortgage.plist")
+            return persistentStoreURL
+        }
+        return nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let loanmodelcontroller = loanModelController
+        if let data = try? Data(contentsOf: persistentStoreURL),
+            let savedLoans = try? PropertyListDecoder().decode([Loan].self, from: data) {
+            loanmodelcontroller.loans = savedLoans
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -38,8 +52,8 @@ class SelectionViewController: UIViewController {
         switch segue.identifier {
         case "ShowCalculatorSegue":
             guard let loanCalculatorVC = segue.destination as? LoanCalculatorViewController else { fatalError() }
-            loanCalculatorVC.delegate = LoanLibraryTableViewController()
             loanCalculatorVC.loanmodelcontroller = loanModelController
+            loanCalculatorVC.delegateSelectionVC = self
         case "ShowLibrarySegue":
             guard let loanLibraryVC = segue.destination as? LoanLibraryTableViewController else { fatalError() }
             loanLibraryVC.loanmodelcontroller = loanModelController
@@ -54,4 +68,13 @@ class SelectionViewController: UIViewController {
 
 // The SelectionVCDelegate takes a loan created in the calculator and appends it to the loans array and then immediately segues to the loan library
 
+extension SelectionViewController: SelectionVCDelegate {
+    func loanWasAdded(_ loan: Loan) {
+        loanModelController.loans.append(loan)
+        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "ShowLibrarySegue", sender: self)
+        
+        save()
+    }
+}
 
